@@ -1,0 +1,5559 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Peer-reviewed publications by Nhat-Tam Nguyen in mechanics, structural health monitoring, data-driven modeling, and computational engineering.">
+<title>Nhat-Tam Nguyen | International Publications</title>
+<style>
+  :root {
+    color-scheme: light;
+    --hero-background: #030d20;
+    --hero-panel: rgba(5, 21, 46, 0.78);
+    --hero-border: rgba(70, 133, 204, 0.34);
+    --hero-accent: #d8a72f;
+    --hero-line: #1c477c;
+    --page-background: #ffffff;
+  }
+
+  html { background: var(--page-background); scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    min-width: 280px;
+    background: var(--page-background);
+    color: #333333;
+    font-family: "Segoe UI", Tahoma, Arial, sans-serif;
+  }
+
+  .publication-hero,
+  .publication-hero * { box-sizing: border-box; }
+
+  .publication-hero {
+    position: relative;
+    display: grid;
+    min-height: clamp(320px, 42vw, 540px);
+    place-items: center;
+    overflow: hidden;
+    isolation: isolate;
+    background: radial-gradient(circle at 50% 45%, rgba(28, 71, 124, 0.16), transparent 42%), var(--hero-background);
+  }
+
+  .publication-particle-canvas {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+  }
+
+  .publication-hero-content {
+    width: min(calc(100% - 32px), 760px);
+    padding: clamp(28px, 5vw, 48px);
+    border: 1px solid var(--hero-border);
+    border-radius: 18px;
+    background: var(--hero-panel);
+    box-shadow: 0 18px 50px rgba(0, 0, 0, 0.32);
+    color: #ffffff;
+    text-align: left;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+  }
+
+  .publication-hero-kicker {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin: 0 0 16px;
+    color: #dcecff;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+  }
+
+  .publication-hero-kicker::before {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--hero-accent);
+    box-shadow: 0 0 14px rgba(216, 167, 47, 0.7);
+    content: "";
+  }
+
+  .publication-hero h1 {
+    margin: 0;
+    color: #ffffff;
+    font-size: clamp(2rem, 5vw, 4rem);
+    font-weight: 750;
+    letter-spacing: -0.045em;
+    line-height: 1.02;
+  }
+
+  .publication-hero h1 span { color: var(--hero-accent); }
+
+  .publication-hero-description {
+    max-width: 64ch;
+    margin: 18px 0 0;
+    color: #d6e0ed;
+    font-size: clamp(0.95rem, 1.5vw, 1.08rem);
+    line-height: 1.65;
+  }
+
+  .publication-hero-rule {
+    width: min(190px, 42%);
+    height: 3px;
+    margin-top: 24px;
+    border: 0;
+    background: linear-gradient(90deg, var(--hero-accent), #3779bd 72%, transparent);
+  }
+
+  .publication-page-content {
+    width: min(calc(100% - 32px), 1280px);
+    margin: 0 auto;
+    padding: 20px 0 48px;
+  }
+
+  @media (max-width: 600px) {
+    .publication-hero { min-height: 360px; }
+    .publication-hero-content { padding: 28px 24px; border-radius: 14px; }
+    .publication-page-content { width: min(calc(100% - 20px), 1280px); padding-top: 14px; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+  }
+</style>
+</head>
+<body>
+<header class="publication-hero" id="publicationHero">
+  <canvas class="publication-particle-canvas" id="publicationParticleCanvas" aria-hidden="true"></canvas>
+  <div class="publication-hero-content">
+    <p class="publication-hero-kicker">International Journal Papers</p>
+    <h1>International <span>Publications</span></h1>
+    <p class="publication-hero-description">Selected peer-reviewed research articles on mechanics, structural health monitoring, data-driven modeling, and computational engineering.</p>
+    <div class="publication-hero-rule" aria-hidden="true"></div>
+  </div>
+</header>
+
+<main class="publication-page-content">
+<div id="publicationApp"></div>
+
+<style>
+  #publicationApp,
+  #publicationApp * {
+    box-sizing: border-box;
+  }
+
+  #publicationApp {
+    --altmetric-badge-size: 26px;
+    width: 100%;
+    max-width: 100%;
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+    color: #333;
+    overflow: visible;
+    position: relative;
+    isolation: isolate;
+  }
+
+  .publication-summary-box {
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+    margin-bottom: 15px;
+  }
+
+  .publication-summary-title {
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 8px;
+  }
+
+  .publication-summary-metrics {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    align-items: stretch;
+  }
+
+  .publication-metric-card {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    flex: 0 0 auto;
+    width: fit-content;
+    max-width: 100%;
+    min-height: 46px;
+    justify-content: flex-start;
+    padding: 7px 12px;
+    border-radius: 999px;
+    font-size: 13px;
+    line-height: 1.2;
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.06);
+    background: #ffffff;
+    color: #555;
+  }
+
+  .publication-metric-card.paper-metric {
+    flex: 0 1 auto;
+    width: fit-content;
+    max-width: 100%;
+    display: inline-flex;
+    flex-wrap: nowrap;
+    gap: 6px;
+    align-items: center;
+    background: linear-gradient(135deg, #eef4ff, #ffffff);
+    border-color: rgba(26, 115, 232, 0.18);
+  }
+
+  .publication-metric-card.citation-metric {
+    flex: 0 1 auto;
+    max-width: min(100%, 640px);
+    background: linear-gradient(135deg, #fff7e6, #fffdf8);
+    border-color: rgba(245, 124, 0, 0.22);
+  }
+
+  .publication-metric-card.paper-metric > .publication-metric-label {
+    flex: 0 0 auto;
+  }
+
+  .publication-metric-card.paper-metric > .paper-total-stat {
+    flex: 0 0 auto;
+  }
+
+  .publication-metric-card.paper-metric > .jcr-stat-group {
+    flex: 1 1 auto;
+    min-width: 0;
+    flex-wrap: nowrap;
+    gap: 4px;
+  }
+
+  .publication-metric-label {
+    font-weight: 600;
+    white-space: nowrap;
+  }
+
+  #totalCitationCount,
+  #hIndexCount,
+  #i10IndexCount {
+    font-weight: 900;
+    color: #e8710a;
+  }
+
+  .jcr-stat-group {
+    display: inline-flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 7px;
+  }
+
+  .jcr-stat-set {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    flex-wrap: nowrap;
+  }
+
+  .jcr-stat-category {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 2px 6px;
+    border-radius: 999px;
+    background: rgba(64, 89, 173, 0.10);
+    color: #4059ad;
+    font-weight: 700;
+  }
+
+  .paper-total-stat,
+  .jcr-stat {
+    display: inline-flex;
+    align-items: center;
+    gap: 3px;
+    padding: 2px 6px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.68);
+    color: #185abc;
+    font-size: 12px;
+    font-weight: 700;
+    white-space: nowrap;
+  }
+
+  .paper-total-label,
+  .jcr-stat-label {
+    font-weight: 700;
+  }
+
+  .paper-total-stat strong,
+  .jcr-stat strong {
+    font-weight: 900;
+    color: #185abc;
+  }
+
+  .citation-stat-group {
+    display: inline-flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 7px;
+  }
+
+  .citation-stat {
+    display: inline-flex;
+    align-items: center;
+    gap: 3px;
+    padding: 3px 8px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.68);
+    color: #8a4b05;
+    font-size: 12px;
+    font-weight: 700;
+    white-space: nowrap;
+  }
+
+  .citation-source-control {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-left: 2px;
+    white-space: nowrap;
+  }
+
+  .citation-source-label {
+    font-size: 12px;
+    color: #777;
+    font-weight: 600;
+  }
+
+  .citation-source-select {
+    height: 28px;
+    padding: 3px 8px;
+    border-radius: 999px;
+    border: 1px solid rgba(245, 124, 0, 0.25);
+    background: #ffffff;
+    color: #b45309;
+    font-size: 12px;
+    font-weight: 700;
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+    cursor: pointer;
+    outline: none;
+  }
+
+  .citation-source-select:hover {
+    box-shadow: 0 3px 8px rgba(245, 124, 0, 0.12);
+  }
+
+  .publication-filter-bar {
+    margin-bottom: 25px;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+
+  .publication-role-filter-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-items: center;
+  }
+
+  .publication-selected-author-label {
+    display: inline-flex;
+    align-items: center;
+    padding: 8px 12px;
+    border-radius: 999px;
+    background: #eef7f5;
+    color: #0f766e;
+    font-size: 13px;
+    font-weight: 800;
+  }
+
+  .publication-filter-button {
+    padding: 8px 16px;
+    cursor: pointer;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    background: white;
+    color: #333;
+    font-weight: 500;
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+    transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
+  }
+
+  .publication-filter-button:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+  }
+
+  .publication-filter-button.active {
+    color: white;
+    border: none;
+  }
+
+  .publication-filter-button[data-filter="all"].active {
+    background: #333;
+  }
+
+  .publication-filter-button[data-filter="role:corresponding"].active {
+    background: #447405;
+  }
+
+  .publication-filter-button[data-filter="role:first"].active {
+    background: #1a73e8;
+  }
+
+  .publication-filter-button[data-filter="role:co-first"].active {
+    background: #7b1fa2;
+  }
+
+  .publication-filter-button[data-filter="role:co-author"].active {
+    background: #5f6368;
+  }
+
+  .publication-filter-button[data-filter^="author:"].active {
+    background: #0f766e;
+  }
+
+  .role-count {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 21px;
+    height: 21px;
+    margin-left: 6px;
+    padding: 0 6px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.82);
+    color: #333;
+    font-size: 11px;
+    font-weight: 850;
+  }
+
+  .publication-filter-button.active .role-count {
+    background: rgba(255, 255, 255, 0.92);
+    color: #111827;
+  }
+
+  .publication-sort-control {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-left: auto;
+    margin-right: 25px;
+    color: #555;
+    font-size: 13px;
+    font-weight: 700;
+    white-space: nowrap;
+  }
+
+  .publication-sort-select {
+    height: 30px;
+    padding: 3px 9px;
+    border-radius: 999px;
+    border: 1px solid #ccd3da;
+    background: #ffffff;
+    color: #333;
+    font-size: 13px;
+    font-weight: 700;
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+    cursor: pointer;
+    outline: none;
+  }
+
+  @media (max-width: 768px) {
+    .publication-sort-control {
+      width: 100%;
+      margin-left: 0;
+      margin-right: 0;
+      justify-content: space-between;
+    }
+  }
+
+  #publicationApp.multi-author-concern:not(.author-selected) .auto-tag {
+    display: none !important;
+  }
+
+  #publicationApp.multi-author-concern:not(.author-selected) .filterItem {
+    padding-top: 20px;
+  }
+
+  #publicationApp.multi-author-concern:not(.author-selected) .publication-role-filter-group {
+    display: none !important;
+  }
+
+  #itemContainer {
+    width: 100%;
+    max-width: 100%;
+    padding: 2px 10px 14px 8px;
+    overflow: visible;
+    position: relative;
+    isolation: isolate;
+    z-index: 1;
+  }
+
+  .yearSection {
+    max-width: 100%;
+    position: relative;
+    z-index: 1;
+    overflow: visible;
+    isolation: auto;
+  }
+
+  .yearSection.plumx-section-active {
+    z-index: 2147483000 !important;
+    isolation: isolate !important;
+  }
+
+  #publicationApp.plumx-global-active .yearSection:not(.plumx-section-active) {
+    z-index: 0 !important;
+  }
+
+  #publicationApp.plumx-global-active .yearSection:not(.plumx-section-active) .filterItem {
+    z-index: 0 !important;
+  }
+
+  #publicationApp.plumx-global-active .yearSection.plumx-section-active .filterItem.plumx-card-active {
+    z-index: 2147483100 !important;
+  }
+
+  .yearHeader {
+    border-bottom: 2px solid #eee;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-left: 5px;
+    margin-right: 15px;
+    max-width: calc(100% - 20px);
+  }
+
+  .yearHeader h2 {
+    margin: 0;
+    color: #333;
+    font-size: 22px;
+  }
+
+  .year-label {
+    display: inline-flex;
+    align-items: center;
+    min-height: 26px;
+    padding: 2px 10px;
+    border-radius: 999px;
+    border: 1px solid rgba(26, 115, 232, 0.18);
+    background: #eef4ff;
+    color: #185abc;
+    font-size: 14px;
+    line-height: 1.1;
+    font-weight: 800;
+    white-space: nowrap;
+  }
+
+  .year-label-in-progress {
+    border-color: rgba(245, 124, 0, 0.28);
+    background: #fff4df;
+    color: #b45309;
+  }
+
+  .year-count {
+    font-size: 14px;
+    color: #888;
+  }
+
+  .filterItem {
+    display: flex;
+    position: relative;
+    z-index: 1;
+    background: #fff;
+    padding: 45px 20px 20px;
+    border-radius: 12px;
+    margin: 0 15px 25px 5px;
+    align-items: flex-start;
+    gap: 20px;
+    width: auto;
+    max-width: 100%;
+    transition:
+      transform 0.22s ease,
+      box-shadow 0.22s ease,
+      background 0.22s ease,
+      border-left-color 0.22s ease !important;
+    cursor: pointer;
+    border-left: 4px solid transparent;
+    overflow: visible;
+  }
+
+  .filterItem:hover,
+  .filterItem:focus-visible {
+    z-index: 50;
+    transform: translateY(-3px);
+    border-left-color: var(--pub-accent-solid, #1a73e8);
+    background: linear-gradient(90deg, var(--pub-accent-bg, rgba(26, 115, 232, 0.055)), #ffffff 30%);
+    box-shadow:
+      -8px 0 18px -8px var(--pub-accent-solid, #1a73e8),
+       8px 0 20px -14px rgba(0, 0, 0, 0.38),
+       0 10px 22px rgba(0, 0, 0, 0.10) !important;
+  }
+
+  .filterItem.plumx-card-active {
+    position: relative;
+    z-index: 2147483100 !important;
+    isolation: isolate !important;
+  }
+
+  .filterItem:active {
+    transform: translateY(-1px);
+  }
+
+  .filterItem.pub-hidden,
+  .yearSection.pub-hidden {
+    display: none !important;
+  }
+
+  .filterItem > div:not(.auto-tag):not(.thumb-box):not(.journal-cover-box) {
+    min-width: 0 !important;
+    max-width: 100% !important;
+  }
+
+  .auto-tag {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    color: white;
+    padding: 4px 12px;
+    border-radius: 15px;
+    font-size: 11px;
+    font-weight: bold;
+    max-width: calc(100% - 24px);
+    line-height: 1.2;
+  }
+
+  .thumb-box {
+    order: 3;
+    flex: 0 0 140px;
+    width: 140px;
+    align-self: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #eee;
+    border-radius: 4px;
+    overflow: hidden;
+    background: #fff;
+  }
+
+  .paper-img {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .journal-cover-box {
+    order: 0;
+    flex: 0 0 110px;
+    width: 110px;
+    max-width: 110px;
+    align-self: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 0;
+    margin-right: 0;
+    padding: 0;
+    border: none;
+    border-radius: 0;
+    background: transparent;
+    box-shadow: none;
+    overflow: visible;
+  }
+
+  .journal-cover-img {
+    width: 110px;
+    max-width: 100%;
+    height: auto;
+    max-height: 150px;
+    object-fit: contain;
+    display: block;
+    border-radius: 10px;
+  }
+
+  .paper-content {
+    order: 1;
+    flex-grow: 1;
+    min-width: 0;
+    overflow: visible;
+  }
+
+  .paper-title {
+    margin: 0 0 8px 0;
+    font-size: 18px;
+    line-height: 1.3;
+  }
+
+  .paper-title a {
+    color: #000000;
+    text-decoration: none;
+    overflow-wrap: anywhere;
+  }
+
+  .paper-title a:hover {
+    color: #1a73e8;
+    text-decoration: underline;
+  }
+
+  .paper-authors {
+    font-size: 14px;
+    color: #555;
+    margin: 0 0 8px 0;
+    line-height: 1.45;
+    overflow-wrap: anywhere;
+  }
+
+  .paper-authors strong {
+    color: #111827;
+    font-weight: 800;
+  }
+
+  .role-symbol-corresponding {
+    color: #447405;
+    font-weight: 800;
+  }
+
+  .role-symbol-cofirst {
+    color: #7b1fa2;
+    font-weight: 800;
+  }
+
+  .paper-journal {
+    font-size: 14px;
+    color: #333;
+    margin: 0;
+    line-height: 1.45;
+    overflow-wrap: anywhere;
+  }
+
+  .journal-name {
+    color: #1a73e8;
+    font-style: normal;
+    font-weight: 850;
+    letter-spacing: 0.1px;
+  }
+
+  .auto-journal-metric {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    margin-left: 5px;
+    padding: 4px 10px;
+    border-radius: 999px;
+    border: 1px solid rgba(78, 149, 217, 0.28);
+    background: linear-gradient(135deg, #eef7ff, #ffffff);
+    color: #1a73e8;
+    font-size: 12px;
+    font-weight: 800;
+    line-height: 1.35;
+    box-shadow: 0 2px 7px rgba(78, 149, 217, 0.12);
+    vertical-align: baseline;
+  }
+
+  .auto-journal-metric::before {
+    content: "Journal";
+    display: inline-block;
+    padding: 1px 6px;
+    border-radius: 999px;
+    background: #1a73e8;
+    color: #ffffff;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 0.2px;
+  }
+
+
+  .doi-line {
+    display: block;
+    margin-top: 6px;
+    line-height: 1.45;
+  }
+
+  .doi-line a {
+    color: #1a73e8;
+    text-decoration: none;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+
+  .doi-line a:hover {
+    text-decoration: underline;
+  }
+
+  .citation-links {
+    margin-top: 10px;
+    font-size: 12px;
+    color: #666;
+    line-height: 1.45;
+    overflow: visible;
+  }
+
+  .citation-links a {
+    color: #1a73e8;
+    text-decoration: none;
+  }
+
+  .citation-links a:hover {
+    text-decoration: underline;
+  }
+
+  .auto-citation-row {
+    margin-top: 9px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 6px;
+    font-size: 12px;
+    color: #555;
+    overflow: visible;
+  }
+
+  .abstract-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 5px 11px;
+    border-radius: 999px;
+    border: 1px solid rgba(26, 115, 232, 0.26);
+    background: linear-gradient(135deg, #e8f0fe, #ffffff);
+    color: #185abc;
+    font-size: 12px;
+    font-weight: 700;
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+    line-height: 1.35;
+    cursor: pointer;
+    box-shadow: 0 2px 7px rgba(26, 115, 232, 0.10);
+    transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
+  }
+
+  .abstract-button:hover,
+  .abstract-button:focus-visible {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 10px rgba(26, 115, 232, 0.16);
+    outline: none;
+  }
+
+  .abstract-button.is-loading {
+    color: #777;
+    background: #f8f9fa;
+    border-color: #dfe3e8;
+    box-shadow: none;
+    cursor: wait;
+  }
+
+  .abstract-button:disabled {
+    opacity: 0.72;
+    cursor: wait;
+    transform: none;
+  }
+
+  .graphical-abstract-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 5px 11px;
+    border-radius: 999px;
+    border: 1px solid rgba(26, 115, 232, 0.26);
+    background: linear-gradient(135deg, #e8f0fe, #ffffff);
+    color: #185abc;
+    font-size: 12px;
+    font-weight: 700;
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+    line-height: 1.35;
+    cursor: pointer;
+    box-shadow: 0 2px 7px rgba(26, 115, 232, 0.10);
+    transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
+  }
+
+  .graphical-abstract-button::before {
+    content: "Image";
+    display: inline-block;
+    padding: 1px 6px;
+    border-radius: 999px;
+    background: #1a73e8;
+    color: #fff;
+    font-size: 9px;
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: 0;
+  }
+
+  .graphical-abstract-button:hover,
+  .graphical-abstract-button:focus-visible {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 10px rgba(26, 115, 232, 0.16);
+    outline: none;
+  }
+
+  .graphical-abstract-bubble {
+    position: fixed;
+    z-index: 2147483600;
+    display: none;
+    width: min(760px, calc(100vw - 24px));
+    max-width: calc(100vw - 24px);
+    border: 1px solid rgba(26, 115, 232, 0.18);
+    border-radius: 10px;
+    background: #ffffff;
+    box-shadow: 0 14px 34px rgba(17, 24, 39, 0.20);
+    overflow: hidden;
+  }
+
+  .graphical-abstract-bubble.is-open {
+    display: block;
+  }
+
+  .close-hover-tooltip {
+    position: fixed;
+    z-index: 2147483640;
+    display: none;
+    pointer-events: none;
+    padding: 3px 7px;
+    border-radius: 999px;
+    background: rgba(17, 24, 39, 0.88);
+    color: #fff;
+    font-size: 10px;
+    font-weight: 700;
+    line-height: 1.2;
+    white-space: nowrap;
+    box-shadow: 0 4px 12px rgba(17, 24, 39, 0.18);
+  }
+
+  .graphical-abstract-bubble-header {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 10px;
+    align-items: center;
+    padding: 9px 11px;
+    border-bottom: 1px solid #edf0f3;
+  }
+
+  .graphical-abstract-bubble-title {
+    margin: 0;
+    color: #111827;
+    font-size: 12px;
+    font-weight: 800;
+    line-height: 1.25;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .graphical-abstract-bubble-close {
+    width: 26px;
+    height: 26px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #dfe3e8;
+    border-radius: 999px;
+    background: #ffffff;
+    color: #4b5563;
+    font-size: 18px;
+    line-height: 1;
+    cursor: pointer;
+  }
+
+  .graphical-abstract-bubble-close:hover,
+  .graphical-abstract-bubble-close:focus-visible {
+    background: #f8f9fa;
+    outline: none;
+  }
+
+  .graphical-abstract-bubble-body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-height: min(74vh, 760px);
+    padding: 10px;
+    background: #f8f9fa;
+    overflow: auto;
+  }
+
+  .graphical-abstract-bubble-img {
+    display: block;
+    max-width: 100%;
+    max-height: min(70vh, 720px);
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    border-radius: 6px;
+    background: #ffffff;
+  }
+
+  .abstract-popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 2147483600;
+    display: none;
+    width: min(420px, calc(100vw - 24px));
+    max-width: calc(100vw - 24px);
+    background: transparent;
+  }
+
+  .abstract-popup.is-open {
+    display: block;
+  }
+
+  .abstract-popup-panel {
+    position: relative;
+    width: 100%;
+    max-height: min(56vh, 440px);
+    display: flex;
+    flex-direction: column;
+    border: 1px solid rgba(26, 115, 232, 0.16);
+    border-radius: 10px;
+    background: #ffffff;
+    box-shadow: 0 14px 34px rgba(17, 24, 39, 0.18);
+    overflow: hidden;
+  }
+
+  .abstract-popup-header {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 10px;
+    align-items: start;
+    padding: 13px 14px 10px;
+    border-bottom: 1px solid #edf0f3;
+  }
+
+  .abstract-popup-title {
+    margin: 0;
+    color: #111827;
+    font-size: 14px;
+    line-height: 1.35;
+    overflow-wrap: anywhere;
+  }
+
+  .abstract-popup-close {
+    width: 26px;
+    height: 26px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #dfe3e8;
+    border-radius: 999px;
+    background: #ffffff;
+    color: #4b5563;
+    font-size: 18px;
+    line-height: 1;
+    cursor: pointer;
+  }
+
+  .abstract-popup-close:hover,
+  .abstract-popup-close:focus-visible {
+    background: #f8f9fa;
+    outline: none;
+  }
+
+  .abstract-popup-body {
+    padding: 12px 14px 14px;
+    overflow: auto;
+    color: #374151;
+    font-size: 13px;
+    line-height: 1.58;
+    white-space: pre-line;
+    overflow-wrap: anywhere;
+  }
+
+  .abstract-popup-source {
+    margin-top: 14px;
+    color: #6b7280;
+    font-size: 11px;
+    line-height: 1.45;
+  }
+
+  .auto-citation-count {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 5px 11px;
+    border-radius: 999px;
+    border: 1px solid rgba(245, 124, 0, 0.28);
+    background: linear-gradient(135deg, #fff3e0, #ffffff);
+    color: #b45309;
+    font-weight: 700;
+    line-height: 1.35;
+    box-shadow: 0 2px 7px rgba(245, 124, 0, 0.12);
+  }
+
+  .auto-citation-count::before {
+    content: "Cited";
+    display: inline-block;
+    padding: 1px 6px;
+    border-radius: 999px;
+    background: #f57c00;
+    color: #ffffff;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 0.2px;
+  }
+
+  .auto-citation-count.is-loading {
+    color: #777;
+    background: #f8f9fa;
+    border-color: #dfe3e8;
+    box-shadow: none;
+    font-weight: 600;
+  }
+
+  .auto-citation-count.is-loading::before {
+    background: #9aa0a6;
+    content: "Loading";
+  }
+
+
+  .auto-plumx-widget,
+  .auto-altmetric-widget {
+    display: inline-flex;
+    align-items: center;
+    min-height: 26px;
+    max-width: 100%;
+    overflow: visible;
+    position: relative;
+    z-index: 2147483200 !important;
+  }
+
+  .auto-plumx-widget .plumx-plum-print-popup {
+    display: inline-flex;
+    align-items: center;
+    min-height: 26px;
+    max-width: 100%;
+    text-decoration: none;
+    line-height: 1.35;
+    overflow: visible;
+    position: relative;
+    z-index: 2147483200 !important;
+  }
+
+  .auto-altmetric-widget {
+    min-width: var(--altmetric-badge-size);
+  }
+
+  .auto-altmetric-widget .altmetric-embed {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: var(--altmetric-badge-size);
+    max-width: 100%;
+  }
+
+  .auto-altmetric-widget .altmetric-embed > a,
+  .auto-altmetric-widget img {
+    width: var(--altmetric-badge-size) !important;
+    height: var(--altmetric-badge-size) !important;
+    max-width: var(--altmetric-badge-size) !important;
+    max-height: var(--altmetric-badge-size) !important;
+    background-size: contain !important;
+  }
+
+  .plumx-fallback-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 5px 11px;
+    border-radius: 999px;
+    border: 1px solid rgba(103, 58, 183, 0.24);
+    background: linear-gradient(135deg, #f5f0ff, #ffffff);
+    color: #5e35b1;
+    font-weight: 700;
+    line-height: 1.35;
+    box-shadow: 0 2px 7px rgba(103, 58, 183, 0.10);
+  }
+
+  .plumx-fallback-label::before {
+    content: "PlumX";
+    display: inline-block;
+    padding: 1px 6px;
+    border-radius: 999px;
+    background: #673ab7;
+    color: #ffffff;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 0.2px;
+  }
+
+  .footnote-section {
+    margin-top: 10px;
+    font-size: 11px;
+    color: #888;
+    border-top: 1px solid #f9f9f9;
+    padding-top: 5px;
+  }
+
+  .load-error {
+    padding: 14px 16px;
+    border-radius: 10px;
+    background: #fff3f0;
+    color: #9f1d12;
+    border: 1px solid #ffd2ca;
+    font-size: 14px;
+    line-height: 1.5;
+  }
+
+  #itemContainer::after {
+    content: "";
+    display: block;
+    height: 52px;
+    flex: 0 0 auto;
+  }
+
+  @media (max-width: 768px) {
+    #itemContainer {
+      padding: 2px 8px 12px 8px !important;
+    }
+
+    .publication-summary-metrics {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      align-items: stretch;
+    }
+
+    .publication-metric-card {
+      width: 100% !important;
+      min-width: 0 !important;
+      flex: 1 1 auto !important;
+      border-radius: 18px;
+      padding: 13px 16px;
+    }
+
+    .publication-metric-card.paper-metric {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      grid-template-areas:
+        "label label"
+        "total total"
+        "stats stats";
+      column-gap: 12px;
+      row-gap: 10px;
+      align-items: center;
+    }
+
+    .publication-metric-card.paper-metric > .publication-metric-label {
+      grid-area: label;
+      justify-self: start;
+      text-align: left;
+    }
+
+    .publication-metric-card.citation-metric {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      grid-template-areas:
+        "label source"
+        "stats stats";
+      column-gap: 12px;
+      row-gap: 10px;
+      align-items: center;
+      max-width: 100%;
+    }
+
+    .publication-metric-card.citation-metric > .publication-metric-label {
+      grid-area: label;
+      justify-self: start;
+      text-align: left;
+    }
+
+    .publication-metric-card.citation-metric > .citation-source-control {
+      grid-area: source;
+      justify-self: end;
+      margin-left: 0;
+      margin-top: 0;
+      width: auto;
+    }
+
+    .publication-metric-card.citation-metric > .citation-stat-group {
+      grid-area: stats;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 8px;
+      width: 100%;
+      justify-content: stretch;
+    }
+
+    .publication-metric-card.paper-metric > .jcr-stat-group {
+      grid-area: stats;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 6px;
+      width: 100%;
+      justify-content: flex-start;
+    }
+
+    .publication-metric-card.paper-metric .jcr-stat-set {
+      display: flex;
+      flex-wrap: nowrap;
+      align-items: center;
+      gap: 6px;
+      width: 100%;
+    }
+
+    .publication-metric-card.paper-metric > .paper-total-stat {
+      grid-area: total;
+      width: 100%;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      justify-content: stretch;
+      align-items: center;
+      text-align: left;
+      padding: 7px 12px;
+      border-radius: 999px;
+    }
+
+    .publication-metric-card.paper-metric > .paper-total-stat strong {
+      justify-self: end;
+      text-align: right;
+      min-width: 24px;
+    }
+
+    .citation-stat {
+      width: 100%;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      justify-content: stretch;
+      align-items: center;
+      text-align: left;
+      padding: 7px 12px;
+      border-radius: 999px;
+    }
+
+    .jcr-stat-category,
+    .jcr-stat {
+      flex: 0 0 auto;
+      min-height: 28px;
+      padding: 5px 8px;
+      font-size: 11px;
+    }
+
+    .jcr-stat {
+      display: inline-flex;
+      width: auto;
+      max-width: 100%;
+    }
+
+    .citation-stat strong {
+      justify-self: end;
+      text-align: right;
+      min-width: 24px;
+    }
+
+    .publication-filter-bar {
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+      gap: 10px;
+    }
+
+    .publication-role-filter-group {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+      gap: 10px;
+    }
+
+    .publication-selected-author-label {
+      width: 100%;
+      justify-content: flex-start;
+      text-align: left;
+    }
+
+    .publication-filter-button {
+      width: 100% !important;
+      min-width: 0 !important;
+      flex: 1 1 auto !important;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      text-align: left !important;
+      padding: 13px 16px !important;
+      border-radius: 12px;
+    }
+
+    .publication-filter-button .role-count {
+      margin-left: auto;
+    }
+
+    #publicationApp.multi-author-concern:not(.author-selected) .filterItem {
+      padding-top: 16px !important;
+    }
+
+    .yearHeader {
+      align-items: flex-start !important;
+      gap: 6px !important;
+      margin-left: 0 !important;
+      margin-right: 0 !important;
+      max-width: 100% !important;
+    }
+
+    #itemContainer::after {
+      height: calc(90px + env(safe-area-inset-bottom, 0px));
+    }
+
+    .filterItem {
+      display: flex !important;
+      flex-direction: column !important;
+      width: auto !important;
+      max-width: 100% !important;
+      margin: 0 0 18px 0 !important;
+      padding: 50px 13px 16px 13px !important;
+      gap: 12px !important;
+      border-radius: 10px !important;
+      overflow: visible !important;
+    }
+
+    .thumb-box {
+      order: 0 !important;
+    }
+
+    .paper-content {
+      order: 1 !important;
+    }
+
+    .journal-cover-box {
+      order: 2 !important;
+    }
+
+    .filterItem.pub-hidden {
+      display: none !important;
+    }
+
+    #publicationApp.plumx-global-active,
+    #publicationApp.plumx-global-active #itemContainer,
+    #publicationApp.plumx-global-active .yearSection,
+    #publicationApp.plumx-global-active .filterItem,
+    #publicationApp.plumx-global-active .paper-content,
+    #publicationApp.plumx-global-active .citation-links,
+    #publicationApp.plumx-global-active .auto-citation-row {
+      overflow: visible !important;
+    }
+
+    #publicationApp.plumx-global-active .yearSection.plumx-section-active {
+      z-index: 2147483000 !important;
+    }
+
+    #publicationApp.plumx-global-active .filterItem.plumx-card-active {
+      z-index: 2147483100 !important;
+      transform: none !important;
+    }
+
+    .auto-tag {
+      top: 10px !important;
+      left: 13px !important;
+      right: auto !important;
+      max-width: calc(100% - 26px) !important;
+      white-space: normal !important;
+      line-height: 1.2 !important;
+      text-align: left !important;
+    }
+
+    .thumb-box {
+      width: 100% !important;
+      max-width: 175px !important;
+      align-self: center !important;
+      margin: 0 auto !important;
+    }
+
+    .journal-cover-box {
+      width: 100% !important;
+      max-width: 145px !important;
+      align-self: center !important;
+      margin: 4px auto 0 auto !important;
+      flex: 0 0 auto !important;
+      min-height: 0 !important;
+      padding: 0 !important;
+      border: none !important;
+      background: transparent !important;
+      box-shadow: none !important;
+      overflow: visible !important;
+    }
+
+    .journal-cover-img {
+      max-height: 155px !important;
+      height: auto !important;
+      border-radius: 10px !important;
+    }
+
+    #publicationApp.mobile-image-no-show .thumb-box,
+    #publicationApp.mobile-image-no-show .journal-cover-box {
+      display: none !important;
+    }
+
+    .paper-title {
+      font-size: 16px !important;
+      line-height: 1.35 !important;
+    }
+
+    .paper-authors,
+    .paper-journal {
+      font-size: 13px !important;
+      line-height: 1.45 !important;
+    }
+
+    .auto-citation-row {
+      width: 100%;
+      max-width: 100%;
+      min-width: 0;
+      display: flex !important;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 6px;
+      overflow: visible !important;
+    }
+
+    .citation-links,
+    .paper-content,
+    .filterItem,
+    .yearSection,
+    #itemContainer,
+    #publicationApp {
+      overflow: visible !important;
+    }
+
+    .auto-citation-count,
+    .abstract-button,
+    .graphical-abstract-button,
+    .auto-plumx-widget,
+    .auto-altmetric-widget {
+      max-width: 100%;
+      min-width: 0;
+      flex: 0 1 auto;
+    }
+
+    .auto-plumx-widget,
+    .auto-altmetric-widget {
+      display: inline-flex !important;
+      align-items: center;
+      overflow: visible !important;
+      z-index: 2147483200 !important;
+    }
+
+    .auto-plumx-widget .plumx-plum-print-popup {
+      display: inline-flex !important;
+      align-items: center;
+      overflow: visible !important;
+      pointer-events: auto !important;
+      z-index: 2147483200 !important;
+    }
+
+    .abstract-popup {
+      width: min(360px, calc(100vw - 20px));
+      max-width: calc(100vw - 20px);
+    }
+
+    .abstract-popup-panel {
+      max-height: min(62vh, 420px);
+      border-radius: 10px;
+    }
+
+    .abstract-popup-header {
+      padding: 12px 13px 9px;
+    }
+
+    .abstract-popup-title {
+      font-size: 13px;
+    }
+
+    .abstract-popup-body {
+      padding: 11px 13px 13px;
+      font-size: 13px;
+    }
+
+    .filterItem:hover,
+    .filterItem:focus-visible {
+      transform: translateY(-2px);
+      box-shadow:
+        -6px 0 14px -8px var(--pub-accent-solid, #1a73e8),
+         0 8px 18px rgba(0, 0, 0, 0.09) !important;
+    }
+
+    html,
+    body {
+      overscroll-behavior-y: auto !important;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    #itemContainer {
+      overscroll-behavior-y: auto !important;
+      touch-action: pan-y !important;
+    }
+  }
+
+  @media (max-width: 420px) {
+    #itemContainer {
+      padding-left: 7px !important;
+      padding-right: 7px !important;
+      padding-bottom: 24px !important;
+    }
+
+    #itemContainer::after {
+      height: calc(105px + env(safe-area-inset-bottom, 0px));
+    }
+
+    .citation-source-label {
+      display: inline-flex;
+    }
+
+    .citation-source-select {
+      flex: 0 0 auto;
+      max-width: 142px;
+    }
+
+    .thumb-box {
+      max-width: 150px !important;
+    }
+
+    .journal-cover-box {
+      max-width: 132px !important;
+    }
+
+    .journal-cover-img {
+      max-height: 145px !important;
+    }
+
+    .paper-title {
+      font-size: 15px !important;
+    }
+  }
+
+
+  /* Extra-compact publication-card typography and spacing.
+     These overrides preserve all existing behavior while making each card much shorter. */
+  .filterItem {
+    padding: 28px 12px 9px;
+    margin: 0 12px 12px 5px;
+    gap: 10px;
+  }
+
+  .auto-tag {
+    top: 7px;
+    right: 8px;
+    padding: 2px 8px;
+    font-size: 9px;
+    line-height: 1.05;
+  }
+
+  .thumb-box {
+    flex: 0 0 128px;
+    width: 128px;
+  }
+
+  .journal-cover-box {
+    flex: 0 0 102px;
+    width: 102px;
+    max-width: 102px;
+  }
+
+  .journal-cover-img {
+    width: 102px;
+    max-height: 132px;
+    border-radius: 8px;
+  }
+
+  .paper-title {
+    margin: 0 0 3px 0;
+    font-size: 14px;
+    line-height: 1.16;
+  }
+
+  .paper-authors {
+    margin: 0 0 3px 0;
+    font-size: 11px;
+    line-height: 1.18;
+  }
+
+  .paper-journal {
+    font-size: 11px;
+    line-height: 1.18;
+  }
+
+  .auto-journal-metric {
+    gap: 3px;
+    margin-left: 3px;
+    padding: 2px 7px;
+    font-size: 9.5px;
+    line-height: 1.12;
+  }
+
+  .auto-journal-metric::before {
+    padding: 1px 4px;
+    font-size: 8px;
+  }
+
+  .doi-line {
+    margin-top: 2px;
+    line-height: 1.15;
+  }
+
+  .citation-links {
+    margin-top: 4px;
+    font-size: 10px;
+    line-height: 1.15;
+  }
+
+  .auto-citation-row {
+    margin-top: 4px;
+    gap: 4px;
+    font-size: 10px;
+  }
+
+  .abstract-button,
+  .graphical-abstract-button,
+  .auto-citation-count,
+  .plumx-fallback-label {
+    gap: 3px;
+    padding: 3px 7px;
+    font-size: 9.5px;
+    line-height: 1.12;
+    min-height: 20px;
+  }
+
+  .auto-citation-count::before,
+  .graphical-abstract-button::before,
+  .plumx-fallback-label::before {
+    padding: 1px 4px;
+    font-size: 8px;
+  }
+
+  .auto-plumx-widget,
+  .auto-plumx-widget .plumx-plum-print-popup,
+  .auto-altmetric-widget,
+  .auto-altmetric-widget .altmetric-embed {
+    min-height: 20px;
+  }
+
+  .footnote-section {
+    margin-top: 5px;
+    padding-top: 3px;
+    font-size: 9px;
+    line-height: 1.12;
+  }
+
+  @media (max-width: 768px) {
+    .filterItem {
+      margin: 0 0 10px 0 !important;
+      padding: 34px 10px 10px 10px !important;
+      gap: 7px !important;
+    }
+
+    #publicationApp.multi-author-concern:not(.author-selected) .filterItem {
+      padding-top: 11px !important;
+    }
+
+    .auto-tag {
+      top: 7px !important;
+      left: 10px !important;
+      padding: 2px 7px !important;
+      font-size: 8.5px !important;
+      line-height: 1.05 !important;
+    }
+
+    .thumb-box {
+      max-width: 156px !important;
+    }
+
+    .journal-cover-box {
+      max-width: 122px !important;
+    }
+
+    .journal-cover-img {
+      max-height: 142px !important;
+    }
+
+    .paper-title {
+      margin-bottom: 3px !important;
+      font-size: 13px !important;
+      line-height: 1.16 !important;
+    }
+
+    .paper-authors,
+    .paper-journal {
+      font-size: 10.5px !important;
+      line-height: 1.18 !important;
+    }
+
+    .citation-links,
+    .auto-citation-row {
+      font-size: 9.5px !important;
+      line-height: 1.12 !important;
+    }
+
+    .auto-citation-row {
+      gap: 4px !important;
+      margin-top: 4px !important;
+    }
+
+    .auto-journal-metric,
+    .abstract-button,
+    .graphical-abstract-button,
+    .auto-citation-count,
+    .plumx-fallback-label {
+      font-size: 9px !important;
+      line-height: 1.1 !important;
+      padding: 3px 6px !important;
+      min-height: 19px !important;
+    }
+
+    .footnote-section {
+      font-size: 8.5px !important;
+      line-height: 1.1 !important;
+    }
+  }
+
+  @media (max-width: 420px) {
+    .paper-title {
+      font-size: 12.5px !important;
+    }
+
+    .paper-authors,
+    .paper-journal {
+      font-size: 10px !important;
+    }
+  }
+
+
+  /* Uniform compact summary panels and year headers. */
+  .publication-summary-box {
+    margin-bottom: 10px;
+  }
+
+  .publication-summary-title {
+    margin-bottom: 6px;
+    font-size: 14px;
+    line-height: 1.15;
+  }
+
+  .publication-summary-metrics {
+    gap: 6px;
+  }
+
+  .publication-metric-card {
+    min-height: 34px;
+    gap: 5px;
+    padding: 5px 9px;
+    font-size: 11.5px;
+    line-height: 1.12;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  }
+
+  .publication-metric-card.paper-metric {
+    gap: 4px;
+  }
+
+  .publication-metric-card.paper-metric > .jcr-stat-group,
+  .jcr-stat-group,
+  .citation-stat-group {
+    gap: 4px;
+  }
+
+  .jcr-stat-set {
+    gap: 3px;
+  }
+
+  .jcr-stat-category,
+  .paper-total-stat,
+  .jcr-stat,
+  .citation-stat {
+    gap: 2px;
+    padding: 2px 5px;
+    font-size: 10.5px;
+    line-height: 1.08;
+  }
+
+  .citation-source-control {
+    gap: 4px;
+    margin-left: 1px;
+  }
+
+  .citation-source-label {
+    font-size: 10.5px;
+  }
+
+  .citation-source-select {
+    height: 23px;
+    padding: 2px 6px;
+    font-size: 10.5px;
+  }
+
+  .publication-filter-bar {
+    margin-bottom: 15px;
+    gap: 7px;
+  }
+
+  .publication-role-filter-group {
+    gap: 7px;
+  }
+
+  .publication-filter-button {
+    padding: 6px 11px;
+    font-size: 11.5px;
+  }
+
+  .publication-selected-author-label {
+    padding: 6px 10px;
+    font-size: 11.5px;
+  }
+
+  .role-count {
+    min-width: 18px;
+    height: 18px;
+    margin-left: 4px;
+    padding: 0 5px;
+    font-size: 10px;
+  }
+
+  .yearHeader {
+    align-items: center;
+    margin-bottom: 10px;
+    padding-bottom: 4px;
+    border-bottom: 1px solid #e7ebef;
+  }
+
+  .yearHeader h2 {
+    font-size: 17px;
+    line-height: 1.1;
+    font-weight: 800;
+    letter-spacing: -0.2px;
+  }
+
+  .year-count {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 22px;
+    padding: 3px 8px;
+    border: 1px solid rgba(26, 115, 232, 0.16);
+    border-radius: 999px;
+    background: linear-gradient(135deg, #eef4ff, #ffffff);
+    color: #185abc;
+    font-size: 10.5px;
+    line-height: 1;
+    font-weight: 800;
+    white-space: nowrap;
+    box-shadow: 0 2px 5px rgba(26, 115, 232, 0.07);
+  }
+
+  @media (max-width: 768px) {
+    .publication-summary-box {
+      margin-bottom: 8px;
+    }
+
+    .publication-summary-title {
+      margin-bottom: 5px;
+      font-size: 13px;
+    }
+
+    .publication-summary-metrics {
+      gap: 6px;
+    }
+
+    .publication-metric-card {
+      min-height: 0;
+      padding: 8px 10px !important;
+      border-radius: 13px;
+      font-size: 11px;
+    }
+
+    .publication-metric-card.paper-metric,
+    .publication-metric-card.citation-metric {
+      column-gap: 8px;
+      row-gap: 6px;
+    }
+
+    .publication-metric-card.citation-metric > .citation-stat-group {
+      gap: 5px;
+    }
+
+    .publication-metric-card.paper-metric > .jcr-stat-group {
+      gap: 4px;
+    }
+
+    .publication-metric-card.paper-metric .jcr-stat-set {
+      gap: 4px;
+    }
+
+    .publication-metric-card.paper-metric > .paper-total-stat,
+    .citation-stat {
+      padding: 5px 8px;
+      font-size: 10.5px;
+    }
+
+    .jcr-stat-category,
+    .jcr-stat {
+      min-height: 22px;
+      padding: 3px 6px;
+      font-size: 10px;
+    }
+
+    .citation-source-label,
+    .citation-source-select {
+      font-size: 10px;
+    }
+
+    .citation-source-select {
+      height: 22px;
+    }
+
+    .publication-filter-bar,
+    .publication-role-filter-group {
+      gap: 6px;
+    }
+
+    .publication-filter-button {
+      padding: 9px 11px !important;
+      border-radius: 10px;
+      font-size: 11px;
+    }
+
+    .publication-selected-author-label {
+      padding: 7px 10px;
+      font-size: 11px;
+    }
+
+    .yearHeader {
+      align-items: center !important;
+      gap: 5px !important;
+      margin-bottom: 8px;
+      padding-bottom: 4px;
+    }
+
+    .yearHeader h2 {
+      font-size: 16px;
+    }
+
+    .year-count {
+      min-height: 21px;
+      padding: 3px 7px;
+      font-size: 10px;
+    }
+  }
+
+  @media (max-width: 420px) {
+    .publication-metric-card {
+      padding: 7px 9px !important;
+    }
+
+    .yearHeader h2 {
+      font-size: 15px;
+    }
+
+    .year-count {
+      min-height: 20px;
+      padding: 3px 7px;
+      font-size: 9.5px;
+    }
+  }
+
+
+  /* Mobile-only image visibility control. */
+  .mobile-image-toggle-button {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    padding: 6px 10px;
+    border: 1px solid rgba(15, 118, 110, 0.22);
+    border-radius: 999px;
+    background: linear-gradient(135deg, #eefaf8, #ffffff);
+    color: #0f766e;
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+    font-size: 11px;
+    font-weight: 800;
+    line-height: 1.1;
+    cursor: pointer;
+    box-shadow: 0 2px 6px rgba(15, 118, 110, 0.08);
+    transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
+  }
+
+  .mobile-image-toggle-button:hover,
+  .mobile-image-toggle-button:focus-visible {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 9px rgba(15, 118, 110, 0.13);
+    outline: none;
+  }
+
+  .mobile-image-toggle-button::before {
+    content: "▣";
+    font-size: 11px;
+    line-height: 1;
+  }
+
+  .mobile-image-toggle-button.images-visible::before {
+    content: "▢";
+  }
+
+  @media (max-width: 768px) {
+    .mobile-image-toggle-button {
+      display: inline-flex;
+      align-self: flex-start;
+      padding: 7px 10px;
+      font-size: 10.5px;
+    }
+  }
+
+
+  /* Final refinement: plain yearly counts and slightly larger desktop card text. */
+  .year-count {
+    display: inline;
+    min-height: 0;
+    padding: 0;
+    border: none;
+    border-radius: 0;
+    background: transparent;
+    color: #111111;
+    font-size: 11px;
+    line-height: 1.1;
+    font-weight: 800;
+    letter-spacing: 0.1px;
+    white-space: nowrap;
+    box-shadow: none;
+    font-variant-numeric: tabular-nums;
+  }
+
+  @media (min-width: 769px) {
+    .paper-title {
+      font-size: 15px;
+      line-height: 1.18;
+    }
+
+    .paper-authors,
+    .paper-journal {
+      font-size: 11.75px;
+      line-height: 1.22;
+    }
+
+    .citation-links,
+    .auto-citation-row {
+      font-size: 10.5px;
+      line-height: 1.18;
+    }
+
+    .auto-journal-metric,
+    .abstract-button,
+    .graphical-abstract-button,
+    .auto-citation-count,
+    .plumx-fallback-label {
+      font-size: 10px;
+      line-height: 1.14;
+    }
+
+    .footnote-section {
+      font-size: 9.5px;
+      line-height: 1.15;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .year-count {
+      font-size: 10.5px;
+    }
+  }
+
+  @media (max-width: 420px) {
+    .year-count {
+      font-size: 10px;
+    }
+  }
+
+
+  /* Slightly larger visual separation between publication years. */
+  .yearSection:not(:last-child) {
+    margin-bottom: 18px;
+  }
+
+  @media (max-width: 768px) {
+    .yearSection:not(:last-child) {
+      margin-bottom: 14px;
+    }
+  }
+
+
+  /* PlumX stacking fix: keep popups visible when they overlap adjacent year sections. */
+  .yearSection:hover,
+  .yearSection:focus-within,
+  .yearSection.plumx-section-active,
+  #publicationApp.plumx-global-active .yearSection.plumx-section-active {
+    position: relative !important;
+    z-index: 2147483000 !important;
+    isolation: isolate !important;
+    overflow: visible !important;
+  }
+
+  .yearSection:hover .filterItem:hover,
+  .yearSection:focus-within .filterItem:focus-within,
+  .filterItem.plumx-card-active,
+  #publicationApp.plumx-global-active .yearSection.plumx-section-active .filterItem.plumx-card-active {
+    position: relative !important;
+    z-index: 2147483100 !important;
+    isolation: isolate !important;
+    overflow: visible !important;
+  }
+
+  #publicationApp.plumx-global-active,
+  #publicationApp.plumx-global-active #itemContainer,
+  #publicationApp.plumx-global-active .yearSection,
+  #publicationApp.plumx-global-active .filterItem,
+  #publicationApp.plumx-global-active .paper-content,
+  #publicationApp.plumx-global-active .citation-links,
+  #publicationApp.plumx-global-active .auto-citation-row,
+  .yearSection:hover,
+  .yearSection:focus-within {
+    overflow: visible !important;
+  }
+
+  /* The PlumX widget may inject its popup inside the trigger element. */
+  .yearSection:hover .auto-plumx-widget,
+  .yearSection:focus-within .auto-plumx-widget,
+  .yearSection:hover .plumx-plum-print-popup,
+  .yearSection:focus-within .plumx-plum-print-popup,
+  .filterItem.plumx-card-active .auto-plumx-widget,
+  .filterItem.plumx-card-active .plumx-plum-print-popup {
+    z-index: 2147483647 !important;
+    overflow: visible !important;
+  }
+
+
+  /* Slightly larger visual buffer between text and the journal-cover / thumbnail images. */
+  .paper-content {
+    margin-left: 8px;
+    margin-right: 8px;
+  }
+
+  @media (max-width: 768px) {
+    .paper-content {
+      margin: 5px 0;
+    }
+  }
+
+  /* Inline reference icons keep the link text readable and wrapping naturally. */
+  .reference-link-icon,
+  .cite-label-icon {
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    vertical-align: -0.125em;
+    margin-right: 5px;
+    color: #000;
+  }
+
+  .reference-link-label,
+  .cite-label {
+    color: #000;
+  }
+</style>
+
+<script type="text/javascript" src="https://cdn.plu.mx/widget-popup.js"></script>
+
+<script>
+(function () {
+  const CONFIG = {
+    spreadsheetId: "1Ss8ExXkhDZLEoRumh6js8MqNIO0gZ7V7",
+    papersSheetName: "Papers",
+    journalMetricsSheetName: "JournalMetrics",
+    authorsConcernSheetName: "AuthorsConcern",
+    citationCacheHours: 12,
+    abstractCacheHours: 168,
+    openAlexApiKey: "",
+    cardDoiOpenClick: "single", // Options: "single" or "double"
+
+    /*
+      Version 1:
+      "down" keeps the popup near the PlumX icon and tries to remove overlap.
+
+      Version 2:
+      "upper" moves the popup to the upper region of the active paper card.
+    */
+    mobilePlumXPlacement: "upper",
+
+    /*
+      Options:
+      "noMobileShow" hides paper thumbnails and journal covers on mobile only.
+      "MobileShow" keeps the current version and shows them on mobile.
+    */
+    mobileImageDisplay: "noMobileShow"
+  };
+
+  const ROLE_CONFIG = {
+    "corresponding": {
+      text: "Corresponding Author",
+      short: "Corresponding",
+      color: "rgba(68, 116, 5, 0.4)",
+      bg: "rgba(68, 116, 5, 0.055)",
+      solid: "#447405",
+      symbol: "*"
+    },
+    "first": {
+      text: "First Author",
+      short: "First",
+      color: "rgba(26, 115, 232, 0.4)",
+      bg: "rgba(26, 115, 232, 0.055)",
+      solid: "#1a73e8",
+      symbol: ""
+    },
+    "co-first": {
+      text: "Co-first Author",
+      short: "Co-first",
+      color: "rgba(123, 31, 162, 0.4)",
+      bg: "rgba(123, 31, 162, 0.055)",
+      solid: "#7b1fa2",
+      symbol: "†"
+    },
+    "co-author": {
+      text: "Co-Author",
+      short: "Co-author",
+      color: "rgba(95, 99, 104, 0.4)",
+      bg: "rgba(95, 99, 104, 0.055)",
+      solid: "#5f6368",
+      symbol: ""
+    }
+  };
+
+  let PAPERS = [];
+  let JOURNAL_METRICS = {};
+  let AUTHORS_CONCERN = [];
+  let currentFilter = "all";
+  let currentSortBy = "year";
+  let citationSortRefreshTimer = null;
+  let lastCitedSortSignature = "";
+  let selectedAuthorSlug = "";
+  let selectedAuthorName = "";
+  let citationUpdateTimer = null;
+  let citationSourceMode = "crossref";
+  let plumXMobilePopupClampBound = false;
+  let plumXMutationObserver = null;
+  let plumXCardDeactivateTimer = null;
+  let activePlumXTrigger = null;
+  let altmetricScriptLoading = false;
+  let mobileImagesVisible = getMobileImageDisplayMode() === "MobileShow";
+
+  function isMobileViewport() {
+    return window.matchMedia("(max-width: 768px)").matches;
+  }
+
+  function getMobileImageDisplayMode() {
+    return CONFIG.mobileImageDisplay === "MobileShow" ? "MobileShow" : "noMobileShow";
+  }
+
+  function applyMobileImageDisplayMode() {
+    const app = document.getElementById("publicationApp");
+    if (!app) return;
+
+    const shouldHideImages = isMobileViewport() && !mobileImagesVisible;
+    app.classList.toggle("mobile-image-no-show", shouldHideImages);
+    updateMobileImageToggleButton();
+  }
+
+  function updateMobileImageToggleButton() {
+    const button = document.getElementById("mobileImageToggleButton");
+    if (!button) return;
+
+    button.textContent = mobileImagesVisible ? "Hide images" : "Show images";
+    button.classList.toggle("images-visible", mobileImagesVisible);
+    button.setAttribute("aria-pressed", mobileImagesVisible ? "true" : "false");
+    button.setAttribute(
+      "aria-label",
+      mobileImagesVisible
+        ? "Hide paper thumbnails and journal covers"
+        : "Show paper thumbnails and journal covers"
+    );
+  }
+
+  window.toggleMobileImages = function () {
+    mobileImagesVisible = !mobileImagesVisible;
+    applyMobileImageDisplayMode();
+    scheduleMobileFrameResizeFromPublicationPage();
+  };
+
+  function renderMobileImageToggleButton() {
+    return `
+      <button id="mobileImageToggleButton"
+              type="button"
+              class="mobile-image-toggle-button${mobileImagesVisible ? " images-visible" : ""}"
+              aria-pressed="${mobileImagesVisible ? "true" : "false"}"
+              onclick="window.toggleMobileImages()">
+        ${mobileImagesVisible ? "Hide images" : "Show images"}
+      </button>
+    `;
+  }
+
+  function getMobilePlumXPlacement() {
+    return CONFIG.mobilePlumXPlacement === "upper" ? "upper" : "down";
+  }
+
+  function getPlumXPopupPosition() {
+    if (!isMobileViewport()) return "right";
+    return getMobilePlumXPlacement() === "upper" ? "top" : "bottom";
+  }
+
+  function normalizeHeader(header) {
+    return String(header || "")
+      .replace(/\s+/g, "")
+      .replace(/[_\-./()]/g, "")
+      .trim()
+      .toLowerCase();
+  }
+
+  function parseCsvRows(text) {
+    const rows = [];
+    let row = [];
+    let field = "";
+    let inQuotes = false;
+    const input = String(text || "").replace(/^\uFEFF/, "");
+
+    for (let index = 0; index < input.length; index++) {
+      const char = input[index];
+      const next = input[index + 1];
+
+      if (char === '"') {
+        if (inQuotes && next === '"') {
+          field += '"';
+          index++;
+        } else {
+          inQuotes = !inQuotes;
+        }
+      } else if (char === "," && !inQuotes) {
+        row.push(field);
+        field = "";
+      } else if ((char === "\n" || char === "\r") && !inQuotes) {
+        row.push(field);
+        rows.push(row);
+        row = [];
+        field = "";
+        if (char === "\r" && next === "\n") index++;
+      } else {
+        field += char;
+      }
+    }
+
+    if (field || row.length) {
+      row.push(field);
+      rows.push(row);
+    }
+
+    const headers = (rows.shift() || []).map(normalizeHeader);
+    return rows
+      .map(values => {
+        const obj = {};
+        headers.forEach((key, index) => {
+          obj[key || ("col" + index)] = values[index] == null ? "" : values[index];
+        });
+        return obj;
+      })
+      .filter(item => Object.values(item).some(value => String(value || "").trim() !== ""));
+  }
+
+  function pick(row, aliases) {
+    for (const alias of aliases) {
+      const key = normalizeHeader(alias);
+      if (Object.prototype.hasOwnProperty.call(row, key)) {
+        return String(row[key] || "").trim();
+      }
+    }
+    return "";
+  }
+
+  function splitList(value) {
+    if (!value) return [];
+    return String(value)
+      .split(/[;|]/)
+      .map(v => v.trim())
+      .filter(Boolean);
+  }
+
+  function normalizeName(name) {
+    return String(name || "")
+      .replace(/\s+/g, " ")
+      .replace(/[*,†]/g, "")
+      .trim()
+      .toLowerCase();
+  }
+
+  function nameMatches(a, b) {
+    return normalizeName(a) === normalizeName(b);
+  }
+
+  function slugify(value) {
+    return String(value || "")
+      .toLowerCase()
+      .normalize("NFD")
+      .replace(/[\u0300-\u036f]/g, "")
+      .replace(/[^a-z0-9]+/g, "-")
+      .replace(/^-+|-+$/g, "");
+  }
+
+  function escapeHtml(value) {
+    return String(value == null ? "" : value)
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;")
+      .replace(/'/g, "&#039;");
+  }
+
+  function stripHtml(value) {
+    const raw = String(value == null ? "" : value);
+
+    if (typeof DOMParser === "undefined") {
+      return raw.replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim();
+    }
+
+    const parsed = new DOMParser().parseFromString(raw, "text/html");
+    return (parsed.body ? parsed.body.textContent : raw).replace(/\s+/g, " ").trim();
+  }
+
+  function isEnabledValue(value) {
+    const raw = String(value == null ? "" : value).trim().toLowerCase();
+    if (!raw) return true;
+    return !["false", "no", "n", "0", "off", "disabled"].includes(raw);
+  }
+
+  function isYesValue(value) {
+    const raw = String(value == null ? "" : value).trim().toLowerCase();
+    return ["true", "t", "yes", "y", "1", "on", "show"].includes(raw);
+  }
+
+  function normalizeDoi(rawDoi) {
+    if (!rawDoi) return "";
+    return String(rawDoi)
+      .replace(/^https?:\/\/(dx\.)?doi\.org\//i, "")
+      .replace(/^doi:/i, "")
+      .replace(/[\s<>"']+/g, "")
+      .replace(/[.,;:)\]]+$/g, "")
+      .trim();
+  }
+
+  function extractImageUrl(value) {
+    const text = String(value == null ? "" : value).trim();
+    if (!text || text === "#") return "";
+
+    if (/^data:image\//i.test(text)) {
+      return text;
+    }
+
+    const imageFormulaMatch = text.match(/=\s*IMAGE\s*\(\s*["']([^"']+)["']/i);
+    if (imageFormulaMatch && imageFormulaMatch[1]) {
+      return imageFormulaMatch[1].trim();
+    }
+
+    const quotedUrlMatch = text.match(/["'](https?:\/\/[^"']+)["']/i);
+    if (quotedUrlMatch && quotedUrlMatch[1]) {
+      return quotedUrlMatch[1].trim();
+    }
+
+    const urlMatch = text.match(/https?:\/\/[^\s"'<>]+/i);
+    if (urlMatch && urlMatch[0]) {
+      return urlMatch[0].replace(/[),.;]+$/g, "").trim();
+    }
+
+    return "";
+  }
+
+  function normalizeImageUrl(value) {
+    const candidates = getImageUrlCandidates(value);
+    return candidates.length ? candidates[0] : "";
+  }
+
+  function uniqueStrings(values) {
+    const seen = new Set();
+    const result = [];
+
+    values.forEach(value => {
+      const text = String(value || "").trim();
+      if (!text || seen.has(text)) return;
+      seen.add(text);
+      result.push(text);
+    });
+
+    return result;
+  }
+
+  function getImageUrlCandidates(value) {
+    const url = extractImageUrl(value);
+    if (!url) return [];
+
+    if (/^data:image\//i.test(url)) {
+      return [url];
+    }
+
+    const driveId = getGoogleDriveFileId(url);
+    if (driveId) {
+      const resourceKey = getGoogleDriveResourceKey(url);
+      const rk = resourceKey ? "&resourcekey=" + encodeURIComponent(resourceKey) : "";
+      const encodedId = encodeURIComponent(driveId);
+
+      return uniqueStrings([
+        "https://drive.google.com/thumbnail?id=" + encodedId + "&sz=w360" + rk,
+        "https://drive.google.com/thumbnail?id=" + encodedId + "&sz=w720" + rk,
+        "https://drive.google.com/uc?export=view&id=" + encodedId + rk,
+        "https://lh3.googleusercontent.com/d/" + encodedId + "=w360",
+        "https://lh3.googleusercontent.com/d/" + encodedId + "=w720"
+      ]);
+    }
+
+    return [url];
+  }
+
+  function getGoogleDriveFileId(url) {
+    const text = String(url || "").trim();
+    let match = text.match(/drive\.google\.com\/file\/d\/([^/?#]+)/i);
+    if (match && match[1]) return decodeURIComponent(match[1]);
+
+    match = text.match(/drive\.google\.com\/open\?[^#]*[?&]id=([^&#]+)/i);
+    if (match && match[1]) return decodeURIComponent(match[1]);
+
+    match = text.match(/drive\.google\.com\/uc\?[^#]*[?&]id=([^&#]+)/i);
+    if (match && match[1]) return decodeURIComponent(match[1]);
+
+    match = text.match(/drive\.google\.com\/thumbnail\?[^#]*[?&]id=([^&#]+)/i);
+    if (match && match[1]) return decodeURIComponent(match[1]);
+
+    match = text.match(/docs\.google\.com\/uc\?[^#]*[?&]id=([^&#]+)/i);
+    if (match && match[1]) return decodeURIComponent(match[1]);
+
+    match = text.match(/lh3\.googleusercontent\.com\/d\/([^/=\s?#]+)/i);
+    if (match && match[1]) return decodeURIComponent(match[1]);
+
+    match = text.match(/[?&]id=([^&#]+)/i);
+    if (match && match[1] && /(drive|googleusercontent|docs\.google)\.com/i.test(text)) {
+      return decodeURIComponent(match[1]);
+    }
+
+    return "";
+  }
+
+  function getGoogleDriveResourceKey(url) {
+    const text = String(url || "").trim();
+    const match = text.match(/[?&]resourcekey=([^&#]+)/i);
+    return match && match[1] ? decodeURIComponent(match[1]) : "";
+  }
+
+  window.pubJournalCoverNext = function (img) {
+    if (!img) return;
+
+    let candidates = [];
+    try {
+      candidates = JSON.parse(img.getAttribute("data-cover-candidates") || "[]");
+    } catch (error) {
+      candidates = [];
+    }
+
+    const currentIndex = Number(img.getAttribute("data-cover-index") || "0");
+    const nextIndex = currentIndex + 1;
+
+    if (nextIndex < candidates.length) {
+      img.setAttribute("data-cover-index", String(nextIndex));
+      img.src = candidates[nextIndex];
+      return;
+    }
+
+    const box = img.closest ? img.closest(".journal-cover-box") : null;
+    if (box) {
+      box.style.display = "none";
+    }
+  };
+
+  window.pubPaperThumbnailNext = function (img) {
+    if (!img) return;
+
+    let candidates = [];
+    try {
+      candidates = JSON.parse(img.getAttribute("data-thumbnail-candidates") || "[]");
+    } catch (error) {
+      candidates = [];
+    }
+
+    const currentIndex = Number(img.getAttribute("data-thumbnail-index") || "0");
+    const nextIndex = currentIndex + 1;
+
+    if (nextIndex < candidates.length) {
+      img.setAttribute("data-thumbnail-index", String(nextIndex));
+      img.src = candidates[nextIndex];
+      return;
+    }
+
+    const box = img.closest ? img.closest(".thumb-box") : null;
+    if (box) {
+      box.style.display = "none";
+    }
+  };
+
+  function extractDoiFromText(text) {
+    if (!text) return "";
+    const match = String(text).match(/10\.\d{4,9}\/[\w.()/:;\-]+/i);
+    return match ? normalizeDoi(match[0]) : "";
+  }
+
+  function getDoiUrl(doi, doiUrl) {
+    const urlDoi = extractDoiFromText(doiUrl || "");
+    const clean = normalizeDoi(doi || urlDoi);
+    return clean ? "https://doi.org/" + clean : "";
+  }
+
+  function getPlumXUrl(doi) {
+    const clean = normalizeDoi(doi || "");
+    return clean ? "https://plu.mx/plum/a/?doi=" + encodeURIComponent(clean) : "";
+  }
+
+  function getAltmetricUrl(doi) {
+    const clean = normalizeDoi(doi || "");
+    return clean ? "https://www.altmetric.com/details/doi/" + encodeURIComponent(clean) : "";
+  }
+
+  function getCardDoiOpenClickMode() {
+    return CONFIG.cardDoiOpenClick === "single" ? "single" : "double";
+  }
+
+  function getCardDoiOpenTitle() {
+    return getCardDoiOpenClickMode() === "single"
+      ? "Click card to open DOI"
+      : "Double-click card to open DOI";
+  }
+
+  function renderPlumXWidget(paper) {
+    const plumxUrl = getPlumXUrl(paper.doi);
+
+    if (!plumxUrl) return "";
+
+    return `
+      <span class="auto-plumx-widget">
+        <a href="${escapeHtml(plumxUrl)}"
+           class="plumx-plum-print-popup"
+           data-site="plum"
+           data-popup="${getPlumXPopupPosition()}"
+           data-size="small"
+           data-hide-when-empty="true"
+           target="_blank"
+           rel="noopener noreferrer"
+           aria-label="PlumX metrics for ${escapeHtml(paper.title)}">
+          <span class="plumx-fallback-label">Metrics</span>
+        </a>
+      </span>
+    `;
+  }
+
+  function renderAltmetricWidget(paper) {
+    const cleanDoi = normalizeDoi(paper.doi || "");
+    const altmetricUrl = getAltmetricUrl(cleanDoi);
+
+    if (!cleanDoi || !altmetricUrl) return "";
+
+    return `
+      <span class="auto-altmetric-widget">
+        <span class="altmetric-embed"
+              data-badge-type="donut"
+              data-badge-popover="right"
+              data-hide-no-mentions="true"
+              data-link-target="_blank"
+              data-doi="${escapeHtml(cleanDoi)}"
+              data-details-url="${escapeHtml(altmetricUrl)}"
+              aria-label="Altmetric attention for ${escapeHtml(paper.title)}"></span>
+      </span>
+    `;
+  }
+
+  function updatePlumXPopupMode() {
+    const popupPosition = getPlumXPopupPosition();
+
+    document.querySelectorAll(".auto-plumx-widget .plumx-plum-print-popup").forEach(function (link) {
+      link.setAttribute("data-popup", popupPosition);
+    });
+  }
+
+  function resetPlumXInlineStacking() {
+    const app = document.getElementById("publicationApp");
+
+    if (app) {
+      app.classList.remove("plumx-global-active");
+    }
+
+    document.querySelectorAll(".yearSection").forEach(function (section) {
+      section.classList.remove("plumx-section-active");
+      section.style.removeProperty("z-index");
+      section.style.removeProperty("isolation");
+      section.style.removeProperty("position");
+    });
+
+    document.querySelectorAll(".filterItem").forEach(function (item) {
+      item.classList.remove("plumx-card-active");
+      item.style.removeProperty("z-index");
+      item.style.removeProperty("isolation");
+      item.style.removeProperty("position");
+    });
+  }
+
+  function clearActivePlumXCards() {
+    resetPlumXInlineStacking();
+  }
+
+  function activatePlumXCardFromElement(element) {
+    const app = document.getElementById("publicationApp");
+    const card = element ? element.closest(".filterItem") : null;
+    const section = element ? element.closest(".yearSection") : null;
+
+    clearTimeout(plumXCardDeactivateTimer);
+    resetPlumXInlineStacking();
+
+    if (app) {
+      app.classList.add("plumx-global-active");
+    }
+
+    document.querySelectorAll(".yearSection").forEach(function (yearSection) {
+      yearSection.style.setProperty("position", "relative", "important");
+      yearSection.style.setProperty("z-index", "0", "important");
+      yearSection.style.setProperty("isolation", "auto", "important");
+    });
+
+    document.querySelectorAll(".filterItem").forEach(function (item) {
+      item.style.setProperty("position", "relative", "important");
+      item.style.setProperty("z-index", "0", "important");
+      item.style.setProperty("isolation", "auto", "important");
+    });
+
+    if (section) {
+      section.classList.add("plumx-section-active");
+      section.style.setProperty("position", "relative", "important");
+      section.style.setProperty("z-index", "2147483000", "important");
+      section.style.setProperty("isolation", "isolate", "important");
+    }
+
+    if (card) {
+      card.classList.add("plumx-card-active");
+      card.style.setProperty("position", "relative", "important");
+      card.style.setProperty("z-index", "2147483100", "important");
+      card.style.setProperty("isolation", "isolate", "important");
+    }
+
+    plumXCardDeactivateTimer = window.setTimeout(function () {
+      resetPlumXInlineStacking();
+    }, 8000);
+  }
+
+  function initPlumXWidgets() {
+    updatePlumXPopupMode();
+
+    const tryInit = function () {
+      try {
+        if (window.__plumX &&
+            window.__plumX.widgets &&
+            typeof window.__plumX.widgets.init === "function") {
+          window.__plumX.widgets.init();
+          bindPlumXMobilePopupClamp();
+          return true;
+        }
+      } catch (error) {
+        console.warn("PlumX widget initialization failed", error);
+      }
+
+      return false;
+    };
+
+    if (tryInit()) return;
+
+    window.setTimeout(tryInit, 300);
+    window.setTimeout(tryInit, 1200);
+  }
+
+  function initAltmetricWidgets() {
+    const tryInit = function () {
+      try {
+        if (typeof window._altmetric_embed_init === "function") {
+          window._altmetric_embed_init();
+          return true;
+        }
+      } catch (error) {
+        console.warn("Altmetric widget initialization failed", error);
+      }
+
+      return false;
+    };
+
+    if (tryInit() || altmetricScriptLoading) return;
+
+    const parent = document.head || document.body || document.documentElement;
+    if (!parent || !document.createElement) return;
+
+    altmetricScriptLoading = true;
+
+    const script = document.createElement("script");
+    script.async = true;
+    script.src = "https://d1bxh8uas1mnw7.cloudfront.net/assets/embed.js";
+    script.onload = function () {
+      altmetricScriptLoading = false;
+      tryInit();
+    };
+    script.onerror = function () {
+      altmetricScriptLoading = false;
+      console.warn("Altmetric widget script failed to load");
+    };
+
+    parent.appendChild(script);
+  }
+
+  function bindPlumXMobilePopupClamp() {
+    if (plumXMobilePopupClampBound) return;
+
+    plumXMobilePopupClampBound = true;
+
+    const triggerClamp = function (target) {
+      activePlumXTrigger = target || null;
+
+      updatePlumXPopupMode();
+      activatePlumXCardFromElement(target);
+
+      if (!isMobileViewport()) return;
+
+      window.setTimeout(clampPlumXPopupToIframe, 30);
+      window.setTimeout(clampPlumXPopupToIframe, 120);
+      window.setTimeout(clampPlumXPopupToIframe, 300);
+      window.setTimeout(clampPlumXPopupToIframe, 700);
+    };
+
+    document.addEventListener("mouseenter", function (event) {
+      const link = event.target && event.target.closest ? event.target.closest(".auto-plumx-widget .plumx-plum-print-popup") : null;
+      if (!link) return;
+      triggerClamp(link);
+    }, true);
+
+    document.addEventListener("mouseover", function (event) {
+      const link = event.target && event.target.closest ? event.target.closest(".auto-plumx-widget .plumx-plum-print-popup") : null;
+      if (!link) return;
+      triggerClamp(link);
+    }, true);
+
+    document.addEventListener("focusin", function (event) {
+      const link = event.target && event.target.closest ? event.target.closest(".auto-plumx-widget .plumx-plum-print-popup") : null;
+      if (!link) return;
+      triggerClamp(link);
+    }, true);
+
+    document.addEventListener("touchstart", function (event) {
+      const link = event.target && event.target.closest ? event.target.closest(".auto-plumx-widget .plumx-plum-print-popup") : null;
+      if (!link) return;
+      triggerClamp(link);
+    }, { passive: true, capture: true });
+
+    document.addEventListener("click", function (event) {
+      const link = event.target && event.target.closest ? event.target.closest(".auto-plumx-widget .plumx-plum-print-popup") : null;
+      if (!link) return;
+      triggerClamp(link);
+    }, true);
+
+    document.addEventListener("mouseleave", function (event) {
+      const card = event.target.closest ? event.target.closest(".filterItem.plumx-card-active") : null;
+      if (!card) return;
+
+      clearTimeout(plumXCardDeactivateTimer);
+      plumXCardDeactivateTimer = window.setTimeout(function () {
+        resetPlumXInlineStacking();
+      }, 1200);
+    }, true);
+
+    window.addEventListener("resize", function () {
+      updatePlumXPopupMode();
+      if (isMobileViewport()) clampPlumXPopupToIframe();
+    }, { passive: true });
+
+    window.addEventListener("scroll", function () {
+      if (isMobileViewport()) clampPlumXPopupToIframe();
+    }, { passive: true });
+
+    if ("MutationObserver" in window && !plumXMutationObserver) {
+      plumXMutationObserver = new MutationObserver(function () {
+        if (!isMobileViewport()) return;
+        clampPlumXPopupToIframe();
+        raiseVisiblePlumXPopups();
+      });
+
+      if (document.body) {
+        plumXMutationObserver.observe(document.body, {
+          childList: true,
+          subtree: true,
+          attributes: true,
+          attributeFilter: ["style", "class"]
+        });
+      }
+    }
+  }
+
+  function elementLooksLikeVisiblePlumXPopup(el) {
+    if (!el || el.nodeType !== 1) return false;
+    if (el.closest(".auto-plumx-widget")) return false;
+
+    const className = typeof el.className === "string" ? el.className.toLowerCase() : "";
+    const id = typeof el.id === "string" ? el.id.toLowerCase() : "";
+    const aria = String(el.getAttribute("aria-label") || "").toLowerCase();
+    const role = String(el.getAttribute("role") || "").toLowerCase();
+    const text = String(el.textContent || "").toLowerCase();
+
+    const rect = el.getBoundingClientRect();
+    if (!rect || rect.width < 80 || rect.height < 40) return false;
+
+    const style = window.getComputedStyle(el);
+    if (style.display === "none" || style.visibility === "hidden" || Number(style.opacity) === 0) return false;
+
+    const hasPlumXByName =
+      className.includes("plumx") ||
+      id.includes("plumx") ||
+      aria.includes("plumx") ||
+      text.includes("plumx");
+
+    const hasPlumXByContent =
+      text.includes("citation indexes") ||
+      text.includes("citations") ||
+      text.includes("captures") ||
+      text.includes("readers") ||
+      text.includes("usage") ||
+      text.includes("mentions");
+
+    const hasPopupLikeShape =
+      style.position === "absolute" ||
+      style.position === "fixed" ||
+      className.includes("popup") ||
+      id.includes("popup") ||
+      className.includes("tooltip") ||
+      id.includes("tooltip") ||
+      role === "tooltip";
+
+    return (hasPlumXByName || hasPlumXByContent) && hasPopupLikeShape;
+  }
+
+  function getOuterVisiblePlumXPopups() {
+    let candidates = Array.from(document.querySelectorAll("body *"))
+      .filter(elementLooksLikeVisiblePlumXPopup);
+
+    candidates = candidates.filter(function (el) {
+      return !candidates.some(function (other) {
+        return other !== el && other.contains(el);
+      });
+    });
+
+    return candidates;
+  }
+
+  function raiseVisiblePlumXPopups() {
+    const candidates = getOuterVisiblePlumXPopups();
+
+    candidates.forEach(function (popup) {
+      popup.style.setProperty("position", "fixed", "important");
+      popup.style.setProperty("z-index", "2147483647", "important");
+      popup.style.setProperty("pointer-events", "auto", "important");
+      popup.style.setProperty("isolation", "isolate", "important");
+      popup.style.setProperty("overflow", "visible", "important");
+
+      popup.querySelectorAll("*").forEach(function (child) {
+        child.style.setProperty("z-index", "2147483647", "important");
+      });
+    });
+  }
+
+  function clampPlumXPopupToIframe() {
+    if (!isMobileViewport()) return;
+
+    const viewportWidth = window.innerWidth || document.documentElement.clientWidth || 360;
+    const viewportHeight = window.innerHeight || document.documentElement.clientHeight || 640;
+    const sideGap = 6;
+
+    const candidates = getOuterVisiblePlumXPopups();
+
+    const activeCard = activePlumXTrigger
+      ? activePlumXTrigger.closest(".filterItem")
+      : null;
+
+    const triggerRect = activePlumXTrigger
+      ? activePlumXTrigger.getBoundingClientRect()
+      : null;
+
+    const cardRect = activeCard
+      ? activeCard.getBoundingClientRect()
+      : null;
+
+    candidates.forEach(function (popup) {
+      popup.style.setProperty("box-sizing", "border-box", "important");
+      popup.style.setProperty("z-index", "2147483647", "important");
+      popup.style.setProperty("position", "fixed", "important");
+      popup.style.setProperty("pointer-events", "auto", "important");
+      popup.style.setProperty("isolation", "isolate", "important");
+      popup.style.setProperty("overflow", "visible", "important");
+
+      popup.style.removeProperty("width");
+      popup.style.removeProperty("max-width");
+      popup.style.removeProperty("min-width");
+
+      popup.style.setProperty("right", "auto", "important");
+      popup.style.setProperty("bottom", "auto", "important");
+
+      const popupRect = popup.getBoundingClientRect();
+      if (!popupRect.width || popupRect.width < 80) return;
+
+      let newLeft = popupRect.left;
+      let newTop = popupRect.top;
+
+      if (triggerRect && cardRect && getMobilePlumXPlacement() === "upper") {
+        newLeft = triggerRect.left + triggerRect.width / 2 - popupRect.width / 2;
+        newTop = cardRect.top - 12;
+      }
+
+      if (triggerRect && getMobilePlumXPlacement() === "down") {
+        newLeft = triggerRect.left + triggerRect.width / 2 - popupRect.width / 2;
+        newTop = triggerRect.bottom + 10;
+      }
+
+      if (newLeft + popupRect.width > viewportWidth - sideGap) {
+        newLeft = viewportWidth - popupRect.width - sideGap;
+      }
+
+      if (newLeft < sideGap) {
+        newLeft = sideGap;
+      }
+
+      if (newTop + popupRect.height > viewportHeight - sideGap) {
+        newTop = viewportHeight - popupRect.height - sideGap;
+      }
+
+      if (newTop < sideGap) {
+        newTop = sideGap;
+      }
+
+      popup.style.setProperty("left", Math.round(newLeft) + "px", "important");
+      popup.style.setProperty("top", Math.round(newTop) + "px", "important");
+
+      popup.querySelectorAll("*").forEach(function (child) {
+        child.style.setProperty("z-index", "2147483647", "important");
+        child.style.setProperty("box-sizing", "border-box", "important");
+      });
+    });
+  }
+
+  function normalizeJournalName(name) {
+    return String(name || "")
+      .replace(/\s+/g, " ")
+      .replace(/\s*-\s*/g, " - ")
+      .replace(/[.,;:]+$/g, "")
+      .trim()
+      .toLowerCase();
+  }
+
+  async function fetchSheetRows(sheetName) {
+    const csvUrl =
+      "https://docs.google.com/spreadsheets/d/" +
+      encodeURIComponent(CONFIG.spreadsheetId) +
+      "/gviz/tq?tqx=out:csv&headers=1&sheet=" +
+      encodeURIComponent(sheetName);
+
+    const csvResponse = await fetch(csvUrl, { method: "GET" });
+    if (csvResponse.ok) {
+      return parseCsvRows(await csvResponse.text());
+    }
+
+    const url =
+      "https://docs.google.com/spreadsheets/d/" +
+      encodeURIComponent(CONFIG.spreadsheetId) +
+      "/gviz/tq?tqx=out:json&headers=1&sheet=" +
+      encodeURIComponent(sheetName);
+
+    const response = await fetch(url, { method: "GET" });
+    if (!response.ok) {
+      throw new Error("Cannot read sheet: " + sheetName + " (HTTP " + response.status + ")");
+    }
+
+    const text = await response.text();
+    const jsonStart = text.indexOf("{");
+    const jsonEnd = text.lastIndexOf("}");
+    if (jsonStart < 0 || jsonEnd < 0) {
+      throw new Error("Invalid Google Sheets response for: " + sheetName);
+    }
+
+    const data = JSON.parse(text.slice(jsonStart, jsonEnd + 1));
+    const cols = (data.table.cols || []).map(col => normalizeHeader(col.label || col.id || ""));
+    const rows = (data.table.rows || []).map(row => {
+      const obj = {};
+      (row.c || []).forEach((cell, index) => {
+        const key = cols[index] || ("col" + index);
+        const value = cell ? (cell.f != null ? cell.f : cell.v) : "";
+        obj[key] = value == null ? "" : value;
+      });
+      return obj;
+    });
+
+    return rows.filter(row => Object.values(row).some(v => String(v || "").trim() !== ""));
+  }
+
+  function parseAuthorsConcernRows(rows) {
+    const seen = new Set();
+    const authors = [];
+
+    rows.forEach(row => {
+      const enabled = pick(row, ["enabled", "isEnabled", "show", "active"]);
+      if (!isEnabledValue(enabled)) return;
+
+      const name = pick(row, ["authorName", "author", "name", "authorsConcern"]);
+      if (!name) return;
+
+      const key = normalizeName(name);
+      if (!key || seen.has(key)) return;
+
+      seen.add(key);
+      authors.push(name);
+    });
+
+    return authors;
+  }
+
+  function parsePaperRow(row) {
+    const doi = normalizeDoi(pick(row, ["doi", "DOI"]));
+    const doiUrlRaw = pick(row, ["doiUrl", "doiLink", "DOIUrl"]);
+    const authors = splitList(pick(row, ["authors", "authorNames", "authorList"]));
+
+    const paper = {
+      sourceRowIndex: row.sourceRowIndex,
+      year: pick(row, ["year", "publicationYear"]),
+      enabled: isPaperEnabled(row),
+      title: pick(row, ["title", "paperTitle"]),
+      doi: doi || extractDoiFromText(doiUrlRaw),
+      authors: authors,
+      journal: pick(row, ["journal", "journalName"]),
+      volume: pick(row, ["volume"]),
+      issue: pick(row, ["issue"]),
+      pages: pick(row, ["pages", "page"]),
+      articleNo: pick(row, ["articleNo", "articleNumber", "article"]),
+      thumbnail: pick(row, ["thumbnail", "thumbnailLink", "image", "imageLink"]),
+      showThumbnail: isYesValue(pick(row, ["showThumbnail", "show thumbnail", "graphicalAbstract", "showGraphicalAbstract"])),
+      firstAuthor: splitList(pick(row, ["firstAuthor", "firstAuthors"])),
+      coFirstAuthor: splitList(pick(row, ["coFirstAuthor", "coFirstAuthors", "coFirst"])),
+      correspondingAuthor: splitList(pick(row, ["correspondingAuthor", "correspondingAuthors"])),
+      risLink: pick(row, ["risLink", "RIS"]),
+      bibtexLink: pick(row, ["bibtexLink", "bibtex"]),
+      textLink: pick(row, ["textLink", "plainTextLink", "text"]),
+      abstract: pick(row, ["abstract", "Abstract", "paperAbstract"]),
+      note: pick(row, ["note", "notes"])
+    };
+
+    paper.doiUrl = getDoiUrl(paper.doi, doiUrlRaw);
+    paper.concernedAuthorsInPaper = getConcernedAuthorsInPaper(paper);
+    paper.roles = getPaperRoles(paper);
+    paper.authorSlugs = paper.concernedAuthorsInPaper.map(name => slugify(name));
+    paper.primaryRole = getPrimaryRole(paper.roles);
+
+    return paper;
+  }
+
+  function isPaperEnabled(row) {
+    const enabled = pick(row, ["enabled", "isEnabled", "show", "active"]);
+    return isEnabledValue(enabled);
+  }
+
+  function parseJournalMetricRow(row) {
+    return {
+      journal: pick(row, ["journal", "journalName"]),
+      impactFactor: pick(row, [
+        "impactFactor",
+        "ImpactFactor",
+        "IF",
+        "impact factor",
+        "Impact Factor",
+        "journalImpactFactor",
+        "journal IF"
+      ]),
+      jcr: pick(row, [
+        "jcr",
+        "JCR",
+        "quartile",
+        "JCR Quartile",
+        "jcrQuartile",
+        "jcrPercentile",
+        "JCR Percentile"
+      ]),
+      metricYear: pick(row, ["metricYear", "year", "metric year"]),
+      coverImage: pick(row, [
+        "coverImage",
+        "cover image",
+        "journalCover",
+        "journalCoverImage",
+        "journal cover",
+        "journal cover image",
+        "cover",
+        "image",
+        "imageUrl",
+        "image URL",
+        "coverUrl",
+        "cover URL"
+      ])
+    };
+  }
+
+  function getConcernedAuthorsInPaper(paper) {
+    if (!AUTHORS_CONCERN.length) return [];
+
+    return AUTHORS_CONCERN.filter(concerned =>
+      paper.authors.some(author => nameMatches(author, concerned))
+    );
+  }
+
+  function authorHasRole(author, roleList) {
+    return roleList.some(roleName => nameMatches(author, roleName));
+  }
+
+  function getRoleForAuthor(author, paper) {
+    const roles = [];
+
+    if (authorHasRole(author, paper.correspondingAuthor)) roles.push("corresponding");
+    if (authorHasRole(author, paper.firstAuthor)) roles.push("first");
+    if (authorHasRole(author, paper.coFirstAuthor)) roles.push("co-first");
+
+    if (!roles.length) roles.push("co-author");
+
+    return roles;
+  }
+
+  function getPaperRoles(paper) {
+    const roleSet = new Set();
+    const concernedAuthors = paper.concernedAuthorsInPaper || [];
+
+    concernedAuthors.forEach(author => {
+      getRoleForAuthor(author, paper).forEach(role => roleSet.add(role));
+    });
+
+    if (!roleSet.size) {
+      roleSet.add("co-author");
+    }
+
+    return Array.from(roleSet);
+  }
+
+  function getPrimaryRole(roles) {
+    if (roles.includes("corresponding")) return "corresponding";
+    if (roles.includes("first")) return "first";
+    if (roles.includes("co-first")) return "co-first";
+    return "co-author";
+  }
+
+  function getAuthorRolesMap(paper) {
+    const map = {};
+
+    (paper.concernedAuthorsInPaper || []).forEach(author => {
+      const slug = slugify(author);
+      if (!slug) return;
+      map[slug] = getRoleForAuthor(author, paper);
+    });
+
+    return map;
+  }
+
+  function parseAuthorRolesMap(item) {
+    try {
+      return JSON.parse(item.dataset.authorRoles || "{}");
+    } catch (error) {
+      return {};
+    }
+  }
+
+  function getRoleTagText(roles) {
+    if (!roles || !roles.length) return ROLE_CONFIG["co-author"].text;
+
+    if (roles.length === 1) {
+      return ROLE_CONFIG[roles[0]] ? ROLE_CONFIG[roles[0]].text : roles[0];
+    }
+
+    return roles
+      .map(role => ROLE_CONFIG[role] ? ROLE_CONFIG[role].text : role)
+      .join(" / ");
+  }
+
+  function updateCardRoleTagsForSelectedAuthor() {
+    const app = document.getElementById("publicationApp");
+    const isMultiAuthorConcern = AUTHORS_CONCERN.length >= 2;
+
+    if (app) {
+      app.classList.toggle("multi-author-concern", isMultiAuthorConcern);
+      app.classList.toggle("author-selected", isMultiAuthorConcern && !!selectedAuthorSlug);
+    }
+
+    const items = Array.from(document.querySelectorAll("#itemContainer .filterItem"));
+
+    items.forEach(item => {
+      const tag = item.querySelector(".auto-tag");
+      if (!tag) return;
+
+      if (isMultiAuthorConcern && selectedAuthorSlug) {
+        const authorRolesMap = parseAuthorRolesMap(item);
+        const roles = authorRolesMap[selectedAuthorSlug] || [];
+        const primaryRole = getPrimaryRole(roles);
+        const roleCfg = ROLE_CONFIG[primaryRole] || ROLE_CONFIG["co-author"];
+
+        tag.textContent = getRoleTagText(roles);
+        tag.style.background = roleCfg.solid;
+
+        item.style.setProperty("--pub-accent-solid", roleCfg.solid);
+        item.style.setProperty("--pub-accent-bg", roleCfg.bg);
+      } else {
+        const primaryRole = item.dataset.primaryRole || "co-author";
+        const roleCfg = ROLE_CONFIG[primaryRole] || ROLE_CONFIG["co-author"];
+
+        tag.textContent = item.dataset.defaultTag || roleCfg.text;
+        tag.style.background = roleCfg.solid;
+
+        item.style.setProperty("--pub-accent-solid", roleCfg.solid);
+        item.style.setProperty("--pub-accent-bg", roleCfg.bg);
+      }
+    });
+
+    const label = document.getElementById("selectedAuthorRoleLabel");
+    if (label) {
+      label.textContent = selectedAuthorName
+        ? "Role filters for " + selectedAuthorName
+        : "Select an author";
+    }
+  }
+
+  function getJournalMetric(journalName) {
+    const target = normalizeJournalName(journalName);
+
+    for (const key in JOURNAL_METRICS) {
+      if (normalizeJournalName(key) === target) return JOURNAL_METRICS[key];
+    }
+
+    return null;
+  }
+
+  function isMetricHidden(value) {
+    const text = String(value == null ? "" : value).trim();
+    return !text || text === "#";
+  }
+
+  function formatImpactFactorText(value) {
+    const text = String(value == null ? "" : value).trim();
+    if (isMetricHidden(text)) return "";
+
+    if (/^(if|impact\s*factor)/i.test(text)) {
+      return text;
+    }
+
+    return "IF " + text;
+  }
+
+  function parseImpactFactorValue(value) {
+    const text = String(value == null ? "" : value).trim();
+    if (isMetricHidden(text)) return null;
+
+    const match = text.replace(/,/g, "").match(/(\d+(?:\.\d+)?)/);
+    if (!match) return null;
+
+    const impactFactor = Number(match[1]);
+    return Number.isFinite(impactFactor) ? impactFactor : null;
+  }
+
+  function formatJcrText(value) {
+    const text = String(value == null ? "" : value).trim();
+    if (isMetricHidden(text)) return "";
+    return text;
+  }
+
+  function parseJcrMetricSummary(value) {
+    const text = String(value == null ? "" : value).trim();
+    const summary = {
+      top5: false,
+      top10: false,
+      percentile: null,
+      quartile: ""
+    };
+
+    if (isMetricHidden(text)) return summary;
+
+    const normalized = text.replace(/,/g, "");
+    const percentMatch = normalized.match(/(?:top\s*)?(\d+(?:\.\d+)?)\s*%/i) ||
+      normalized.match(/percentile\s*:?\s*(\d+(?:\.\d+)?)/i);
+
+    if (percentMatch) {
+      const percent = Number(percentMatch[1]);
+      if (Number.isFinite(percent)) {
+        summary.percentile = percent;
+        summary.top5 = percent <= 5;
+        summary.top10 = percent <= 10;
+      }
+    }
+
+    const quartileMatch = normalized.match(/\bQ\s*([1-4])\b/i) ||
+      normalized.match(/\bquartile\s*([1-4])\b/i) ||
+      normalized.match(/\b([1-4])(?:st|nd|rd|th)\s*quartile\b/i);
+
+    if (quartileMatch) {
+      summary.quartile = "Q" + quartileMatch[1];
+    } else if (summary.top10) {
+      summary.quartile = "Q1";
+    }
+
+    return summary;
+  }
+
+  function countJcrMetricSummary(summaries) {
+    const counts = {
+      top5: 0,
+      top10: 0,
+      q1: 0,
+      q2: 0,
+      q3: 0,
+      q4: 0
+    };
+
+    summaries.forEach(summary => {
+      if (!summary) return;
+
+      if (summary.top5) counts.top5++;
+      if (summary.top10) counts.top10++;
+
+      const quartile = String(summary.quartile || "").toLowerCase();
+      if (Object.prototype.hasOwnProperty.call(counts, quartile)) {
+        counts[quartile]++;
+      }
+    });
+
+    return counts;
+  }
+
+  function getPaperJcrMetricSummary(paper) {
+    const metric = getJournalMetric(paper.journal);
+    return metric ? parseJcrMetricSummary(metric.jcr) : parseJcrMetricSummary("");
+  }
+
+  function getRoleSortValue(paper) {
+    const priority = {
+      corresponding: 0,
+      first: 1,
+      "co-first": 2,
+      "co-author": 3
+    };
+
+    return Object.prototype.hasOwnProperty.call(priority, paper.primaryRole)
+      ? priority[paper.primaryRole]
+      : priority["co-author"];
+  }
+
+  function getRankSortValue(paper) {
+    const summary = getPaperJcrMetricSummary(paper);
+    const hasPercentile = summary.percentile !== null && summary.percentile !== "";
+    const percentile = hasPercentile ? Number(summary.percentile) : NaN;
+
+    if (Number.isFinite(percentile)) return percentile;
+
+    if (summary.top5) return 5;
+    if (summary.top10) return 10;
+
+    const quartile = String(summary.quartile || "").toUpperCase();
+    if (quartile === "Q1") return 101;
+    if (quartile === "Q2") return 102;
+    if (quartile === "Q3") return 103;
+    if (quartile === "Q4") return 104;
+
+    return 999;
+  }
+
+  function getRankSortLabel(paper) {
+    const value = getRankSortValue(paper);
+    return Number.isFinite(value) ? String(value) : "999";
+  }
+
+  function getImpactFactorSortValue(paper) {
+    const metric = getJournalMetric(paper.journal);
+    if (!metric) return -1;
+
+    const impactFactor = parseImpactFactorValue(metric.impactFactor);
+    return impactFactor == null ? -1 : impactFactor;
+  }
+
+  function getImpactFactorSortLabel(paper) {
+    const value = getImpactFactorSortValue(paper);
+    return Number.isFinite(value) ? String(value) : "-1";
+  }
+
+  function getCitationSortValue(paper) {
+    const count = Number(paper.citationSortCount);
+    return Number.isFinite(count) ? count : -1;
+  }
+
+  function getVolumeSortValue(paper) {
+    const match = String(paper && paper.volume || "").replace(/,/g, "").match(/(\d+(?:\.\d+)?)/);
+    if (!match) return null;
+
+    const volume = Number(match[1]);
+    return Number.isFinite(volume) ? volume : null;
+  }
+
+  function comparePapersByYear(a, b) {
+    const yearA = getYearSortValue(a.year);
+    const yearB = getYearSortValue(b.year);
+    if (yearA !== yearB) return yearB - yearA;
+
+    if (normalizeJournalName(a.journal) && normalizeJournalName(a.journal) === normalizeJournalName(b.journal)) {
+      const volumeA = getVolumeSortValue(a);
+      const volumeB = getVolumeSortValue(b);
+      if (volumeA != null && volumeB != null && volumeA !== volumeB) return volumeB - volumeA;
+    }
+
+    const rowDiff = Number(b.sourceRowIndex || 0) - Number(a.sourceRowIndex || 0);
+    if (rowDiff) return rowDiff;
+    return String(a.title || "").localeCompare(String(b.title || ""));
+  }
+
+  function isInProgressYear(year) {
+    const normalized = String(year == null ? "" : year).trim().toLowerCase();
+    return normalized === "in progress" || normalized === "0";
+  }
+
+  function getDisplayYear(year) {
+    const normalized = String(year == null ? "" : year).trim();
+    if (isInProgressYear(normalized)) return "In Progress";
+    return normalized || "Unknown";
+  }
+
+  function getYearSortValue(year) {
+    if (isInProgressYear(year)) return Number.MAX_SAFE_INTEGER;
+    return Number(year) || 0;
+  }
+
+  function getYearLabelClass(year) {
+    return isInProgressYear(year)
+      ? "year-label year-label-in-progress"
+      : "year-label year-label-year";
+  }
+
+  function getCardYearDetail(year) {
+    return isInProgressYear(year) ? "" : String(year || "").trim();
+  }
+
+  function comparePapersForCurrentSort(a, b) {
+    if (currentSortBy === "role") {
+      const roleDiff = getRoleSortValue(a) - getRoleSortValue(b);
+      if (roleDiff) return roleDiff;
+    } else if (currentSortBy === "rank") {
+      const rankA = getRankSortValue(a);
+      const rankB = getRankSortValue(b);
+      const rankDiff = rankA - rankB;
+      if (rankDiff) return rankDiff;
+    } else if (currentSortBy === "if") {
+      const ifDiff = getImpactFactorSortValue(b) - getImpactFactorSortValue(a);
+      if (ifDiff) return ifDiff;
+    } else if (currentSortBy === "cited") {
+      const citationDiff = getCitationSortValue(b) - getCitationSortValue(a);
+      if (citationDiff) return citationDiff;
+    }
+
+    return comparePapersByYear(a, b);
+  }
+
+  function getSortedPaperSignature() {
+    return PAPERS.slice()
+      .sort(comparePapersForCurrentSort)
+      .map(paper => [normalizeDoi(paper.doi || ""), paper.title || "", getCitationSortValue(paper)].join(":"))
+      .join("|");
+  }
+
+  function scheduleCitationSortRefresh() {
+    if (currentSortBy !== "cited") return;
+
+    clearTimeout(citationSortRefreshTimer);
+    citationSortRefreshTimer = setTimeout(function () {
+      const nextSignature = getSortedPaperSignature();
+      if (nextSignature !== lastCitedSortSignature) {
+        renderPublicationList();
+      }
+    }, 250);
+  }
+
+  function renderJcrMetricStats() {
+    return `
+      <span class="jcr-stat-group" title="Counts papers by the matched journal metric row for currently visible papers. Top 10% includes Top 5%; Top 5% and Top 10% also count as Q1.">
+        <span class="jcr-stat-set">
+          <span class="jcr-stat-category">Top JCR</span>
+          <span class="jcr-stat"><span class="jcr-stat-label">Top 5%</span> <strong id="jcrTop5Count">0</strong></span>
+          <span class="jcr-stat"><span class="jcr-stat-label">Top 10%</span> <strong id="jcrTop10Count">0</strong></span>
+        </span>
+        <span class="jcr-stat-set">
+          <span class="jcr-stat-category">Quartile</span>
+          <span class="jcr-stat"><span class="jcr-stat-label">Q1</span> <strong id="jcrQ1Count">0</strong></span>
+          <span class="jcr-stat"><span class="jcr-stat-label">Q2</span> <strong id="jcrQ2Count">0</strong></span>
+          <span class="jcr-stat"><span class="jcr-stat-label">Q3</span> <strong id="jcrQ3Count">0</strong></span>
+          <span class="jcr-stat"><span class="jcr-stat-label">Q4</span> <strong id="jcrQ4Count">0</strong></span>
+        </span>
+      </span>
+    `;
+  }
+
+  function formatJournalDetails(paper) {
+    const parts = [];
+
+    if (paper.volume) parts.push(paper.volume);
+    if (paper.issue) parts.push("(" + paper.issue + ")");
+    const cardYear = getCardYearDetail(paper.year);
+    if (cardYear) parts.push(cardYear);
+    if (paper.pages) parts.push(paper.pages);
+    if (paper.articleNo) parts.push(paper.articleNo);
+
+    return parts.join(", ");
+  }
+
+  function renderAuthors(paper) {
+    const concernNames = paper.concernedAuthorsInPaper.map(normalizeName);
+
+    return paper.authors.map(author => {
+      const cleanAuthor = escapeHtml(author);
+      const isConcern = concernNames.includes(normalizeName(author));
+      const roles = getRoleForAuthor(author, paper);
+
+      let suffix = "";
+      if (roles.includes("co-first")) {
+        suffix += '<span class="role-symbol-cofirst">†</span>';
+      }
+      if (roles.includes("corresponding")) {
+        suffix += '<span class="role-symbol-corresponding">*</span>';
+      }
+
+      return (isConcern ? "<strong>" + cleanAuthor + "</strong>" : cleanAuthor) + suffix;
+    }).join(", ");
+  }
+
+  function renderJournalMetricBadge(paper) {
+    const metric = getJournalMetric(paper.journal);
+
+    if (!paper.journal) return "";
+
+    if (!metric) {
+      return "";
+    }
+
+    const impactText = formatImpactFactorText(metric.impactFactor);
+    const jcrText = formatJcrText(metric.jcr);
+    const visibleParts = [];
+
+    if (impactText) visibleParts.push(impactText);
+    if (jcrText) visibleParts.push(jcrText);
+
+    if (!visibleParts.length) {
+      return "";
+    }
+
+    return `<span class="auto-journal-metric">${escapeHtml(visibleParts.join(", "))}</span>`;
+  }
+
+  function getJournalCoverImageCandidates(paper) {
+    const metric = getJournalMetric(paper.journal);
+    return metric ? getImageUrlCandidates(metric.coverImage) : [];
+  }
+
+  function renderJournalCover(paper) {
+    const coverCandidates = getJournalCoverImageCandidates(paper);
+    if (!coverCandidates.length) return "";
+
+    const coverImage = coverCandidates[0];
+    const altText = paper.journal ? paper.journal + " cover" : "Journal cover";
+
+    return `
+      <div class="journal-cover-box">
+        <img src="${escapeHtml(coverImage)}"
+             class="journal-cover-img"
+             alt="${escapeHtml(altText)}"
+             loading="lazy"
+             data-cover-index="0"
+             data-cover-candidates="${escapeHtml(JSON.stringify(coverCandidates))}"
+             onerror="window.pubJournalCoverNext && window.pubJournalCoverNext(this);">
+      </div>
+    `;
+  }
+
+  function renderCitationLinks(paper) {
+    const links = [];
+
+    if (paper.risLink && paper.risLink !== "#") {
+      links.push(`<a href="${escapeHtml(paper.risLink)}" target="_blank" rel="noopener noreferrer">RIS</a>`);
+    }
+
+    if (paper.bibtexLink && paper.bibtexLink !== "#") {
+      links.push(`<a href="${escapeHtml(paper.bibtexLink)}" target="_blank" rel="noopener noreferrer">BibTeX</a>`);
+    }
+
+    if (paper.textLink && paper.textLink !== "#") {
+      links.push(`<a href="${escapeHtml(paper.textLink)}" target="_blank" rel="noopener noreferrer">text</a>`);
+    }
+
+    return links.length ? `<svg class="cite-label-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M3 4h8v8c0 5-3 8-8 8v-2c3 0 5-2 5-5H3V4zm12 0h8v8c0 5-3 8-8 8v-2c3 0 5-2 5-5h-5V4z"/></svg><span class="cite-label">Cite:</span> ${links.join(", ")}` : "";
+  }
+
+  function renderFootnotes(paper) {
+    const notes = [];
+
+    if (paper.coFirstAuthor.length) {
+      notes.push(`<span style="margin-right: 15px;"><span class="role-symbol-cofirst">†</span> Equally contributed</span>`);
+    }
+
+    if (paper.correspondingAuthor.length) {
+      notes.push(`<span><span class="role-symbol-corresponding">*</span> Corresponding Author</span>`);
+    }
+
+    return notes.length ? `<div class="footnote-section">${notes.join(" ")}</div>` : "";
+  }
+
+  function getPaperThumbnailImageCandidates(paper) {
+    return getImageUrlCandidates(paper.thumbnail);
+  }
+
+  function renderPaperThumbnail(paper) {
+    const thumbnailCandidates = getPaperThumbnailImageCandidates(paper);
+    if (!thumbnailCandidates.length) return "";
+
+    const thumbnailImage = thumbnailCandidates[0];
+
+    return `
+      <div class="thumb-box">
+        <img src="${escapeHtml(thumbnailImage)}"
+             class="paper-img"
+             alt=""
+             loading="lazy"
+             data-thumbnail-index="0"
+             data-thumbnail-candidates="${escapeHtml(JSON.stringify(thumbnailCandidates))}"
+             onerror="window.pubPaperThumbnailNext && window.pubPaperThumbnailNext(this);">
+      </div>
+    `;
+  }
+
+  function renderGraphicalAbstractButton(paper) {
+    const thumbnailCandidates = getPaperThumbnailImageCandidates(paper);
+    if (!paper.showThumbnail || !thumbnailCandidates.length) return "";
+
+    return `
+      <button type="button"
+              class="graphical-abstract-button"
+              data-graphical-abstract-title="${escapeHtml(paper.title)}"
+              data-graphical-abstract-candidates="${escapeHtml(JSON.stringify(thumbnailCandidates))}"
+              onclick="window.pubOpenGraphicalAbstractBubble(this)"
+              aria-label="View graphical highlight for ${escapeHtml(paper.title)}">Graphical highlight</button>
+    `;
+  }
+
+  function renderPaperCard(paper) {
+    const roleCfg = ROLE_CONFIG[paper.primaryRole] || ROLE_CONFIG["co-author"];
+    const roleClasses = paper.roles.map(role => " role-" + role).join("");
+    const authorClasses = paper.authorSlugs.map(slug => " author-" + slug).join("");
+    const doiUrl = paper.doiUrl || "#";
+    const authorRolesMap = getAuthorRolesMap(paper);
+    const jcrSummary = getPaperJcrMetricSummary(paper);
+    const rankSortLabel = getRankSortLabel(paper);
+    const impactFactorSortLabel = getImpactFactorSortLabel(paper);
+    const cardDoiOpenTitle = getCardDoiOpenTitle();
+
+    return `
+      <div class="filterItem${roleClasses}${authorClasses}"
+           data-doi="${escapeHtml(paper.doi)}"
+           data-doi-url="${escapeHtml(doiUrl)}"
+           data-roles="${escapeHtml(paper.roles.join(" "))}"
+           data-authors="${escapeHtml(paper.authorSlugs.join(" "))}"
+           data-author-roles="${escapeHtml(JSON.stringify(authorRolesMap))}"
+           data-primary-role="${escapeHtml(paper.primaryRole)}"
+           data-jcr-top5="${jcrSummary.top5 ? "1" : "0"}"
+           data-jcr-top10="${jcrSummary.top10 ? "1" : "0"}"
+           data-jcr-quartile="${escapeHtml(jcrSummary.quartile)}"
+           data-rank-sort="${escapeHtml(rankSortLabel)}"
+           data-if-sort="${escapeHtml(impactFactorSortLabel)}"
+           data-default-tag="${escapeHtml(roleCfg.text)}"
+           tabindex="0"
+           role="link"
+           aria-label="${escapeHtml(cardDoiOpenTitle)}: ${escapeHtml(doiUrl)}"
+           title="${escapeHtml(cardDoiOpenTitle)}"
+           style="--pub-accent-solid:${roleCfg.solid}; --pub-accent-bg:${roleCfg.bg}; box-shadow: 4px 0px 10px -4px ${roleCfg.color}, 0px 4px 10px rgba(0,0,0,0.06);">
+
+        <div class="auto-tag" style="background:${roleCfg.solid};">${roleCfg.text}</div>
+
+        ${renderPaperThumbnail(paper)}
+
+        <div class="paper-content">
+          <h3 class="paper-title">
+            <a href="${escapeHtml(doiUrl)}" target="_blank" rel="noopener noreferrer">
+              ${escapeHtml(paper.title)}
+            </a>
+          </h3>
+
+          <p class="paper-authors">${renderAuthors(paper)}</p>
+
+          <p class="paper-journal">
+            <em class="journal-name">${escapeHtml(paper.journal)}</em>${formatJournalDetails(paper) ? ", " + escapeHtml(formatJournalDetails(paper)) + "." : "."}
+            ${renderJournalMetricBadge(paper)}
+            ${paper.doi ? `
+              <span class="doi-line">
+                <a href="${escapeHtml(doiUrl)}" target="_blank" rel="noopener noreferrer"><svg class="reference-link-icon" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M15 3h6v6M10 14 21 3"/><path d="M10 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-5"/></svg><span class="reference-link-label">DOI:</span> ${escapeHtml(paper.doi)}</a>
+              </span>
+            ` : ""}
+          </p>
+
+          <div class="citation-links">
+            ${renderCitationLinks(paper)}
+            <div class="auto-citation-row">
+              <span class="auto-citation-count is-loading" data-doi="${escapeHtml(paper.doi)}">Citations: loading...</span>
+              <button type="button" class="abstract-button" data-doi="${escapeHtml(paper.doi)}" data-title="${escapeHtml(paper.title)}" data-local-abstract="${escapeHtml(paper.abstract)}">View abstract</button>
+              ${renderGraphicalAbstractButton(paper)}
+              ${renderPlumXWidget(paper)}
+              ${renderAltmetricWidget(paper)}
+            </div>
+            ${renderFootnotes(paper)}
+          </div>
+        </div>
+
+        ${renderJournalCover(paper)}
+      </div>
+    `;
+  }
+
+  function renderFilterButtons() {
+    const showAuthorButtons = AUTHORS_CONCERN.length >= 2;
+
+    const authorButtons = showAuthorButtons
+      ? AUTHORS_CONCERN.map(name => {
+          const slug = slugify(name);
+          return `
+            <button class="publication-filter-button" data-filter="author:${slug}" onclick="window.filterSelection('author:${slug}')">
+              ${escapeHtml(name)}
+            </button>
+          `;
+        }).join("")
+      : "";
+
+    const roleButtons = `
+      <div class="publication-role-filter-group">
+        ${showAuthorButtons ? `<span id="selectedAuthorRoleLabel" class="publication-selected-author-label">Select an author</span>` : ""}
+        <button class="publication-filter-button" data-filter="role:corresponding" onclick="window.filterSelection('role:corresponding')">
+          Corresponding Author <span class="role-count" data-role-count="corresponding">0</span>
+        </button>
+        <button class="publication-filter-button" data-filter="role:first" onclick="window.filterSelection('role:first')">
+          First Author <span class="role-count" data-role-count="first">0</span>
+        </button>
+        <button class="publication-filter-button" data-filter="role:co-first" onclick="window.filterSelection('role:co-first')">
+          Co-first Author <span class="role-count" data-role-count="co-first">0</span>
+        </button>
+        <button class="publication-filter-button" data-filter="role:co-author" onclick="window.filterSelection('role:co-author')">
+          Co-Author <span class="role-count" data-role-count="co-author">0</span>
+        </button>
+      </div>
+    `;
+
+    return `
+      <div class="publication-filter-bar">
+        <button class="publication-filter-button active" data-filter="all" onclick="window.filterSelection('all')">
+          Show All <span class="role-count" data-role-count="all">0</span>
+        </button>
+        ${renderMobileImageToggleButton()}
+        ${authorButtons}
+        ${roleButtons}
+        ${renderSortControl()}
+      </div>
+    `;
+  }
+
+  function renderSortControl() {
+    return `
+      <label class="publication-sort-control">
+        <span>Sort by:</span>
+        <select class="publication-sort-select" onchange="window.changePublicationSort(this.value)">
+          <option value="year" ${currentSortBy === "year" ? "selected" : ""}>Year</option>
+          <option value="role" ${currentSortBy === "role" ? "selected" : ""}>Role</option>
+          <option value="rank" ${currentSortBy === "rank" ? "selected" : ""}>Rank</option>
+          <option value="if" ${currentSortBy === "if" ? "selected" : ""}>IF</option>
+          <option value="cited" ${currentSortBy === "cited" ? "selected" : ""}>Cited</option>
+        </select>
+      </label>
+    `;
+  }
+
+  function renderCitationSourceControl() {
+    return `
+      <span class="citation-source-control">
+        <span class="citation-source-label">Source</span>
+        <select id="citationSourceSelect"
+                class="citation-source-select"
+                onchange="changeCitationSource(this.value)">
+          <option value="crossref" ${citationSourceMode === "crossref" ? "selected" : ""}>Crossref</option>
+          <option value="openalex" ${citationSourceMode === "openalex" ? "selected" : ""}>OpenAlex</option>
+        </select>
+      </span>
+    `;
+  }
+
+  function renderPublicationList() {
+    const app = document.getElementById("publicationApp");
+    applyMobileImageDisplayMode();
+
+    const sortedPapers = PAPERS.slice().sort(comparePapersForCurrentSort);
+    if (currentSortBy === "cited") {
+      lastCitedSortSignature = sortedPapers
+        .map(paper => [normalizeDoi(paper.doi || ""), paper.title || "", getCitationSortValue(paper)].join(":"))
+        .join("|");
+    }
+
+    const yearSections = currentSortBy === "year"
+      ? (function () {
+          const grouped = new Map();
+
+          sortedPapers.forEach(paper => {
+            const year = getDisplayYear(paper.year);
+            if (!grouped.has(year)) grouped.set(year, []);
+            grouped.get(year).push(paper);
+          });
+
+          return Array.from(grouped.entries()).map(([year, papers]) => `
+            <div class="yearSection" data-year="${escapeHtml(year)}">
+              <div class="yearHeader">
+                <h2><span class="${getYearLabelClass(year)}">${escapeHtml(year)}</span></h2>
+                <span class="year-count">0 papers</span>
+              </div>
+              ${papers.map(renderPaperCard).join("")}
+            </div>
+          `).join("");
+        })()
+      : `
+        <div class="yearSection publication-sorted-card-section" data-sort-by="${escapeHtml(currentSortBy)}">
+          ${sortedPapers.map(renderPaperCard).join("")}
+        </div>
+      `;
+
+    app.innerHTML = `
+      <div class="publication-summary-box">
+        <div class="publication-summary-title">Publications by Nhat-Tam Nguyen</div>
+        <div class="publication-summary-metrics">
+          <div class="publication-metric-card paper-metric">
+            <span class="publication-metric-label">Total Papers</span>
+            <span class="paper-total-stat"><span class="paper-total-label">Total</span> <strong id="totalPaperCount">0</strong></span>
+            ${renderJcrMetricStats()}
+          </div>
+
+          <div class="publication-metric-card citation-metric" title="Citation, h-index, and i10-index are calculated from currently visible papers using the selected source.">
+            <span class="publication-metric-label">Citation Metrics</span>
+
+            <span class="citation-stat-group">
+              <span class="citation-stat">Cites <strong id="totalCitationCount">loading...</strong></span>
+              <span class="citation-stat">h-index <strong id="hIndexCount">loading...</strong></span>
+              <span class="citation-stat">i10-index <strong id="i10IndexCount">loading...</strong></span>
+            </span>
+
+            ${renderCitationSourceControl()}
+          </div>
+        </div>
+      </div>
+
+      ${renderFilterButtons()}
+
+      <div id="itemContainer">
+        ${yearSections}
+      </div>
+    `;
+
+    updateMobileImageToggleButton();
+    initCardsAfterRender();
+  }
+
+  function initCardsAfterRender() {
+    checkThumbnails();
+    enablePaperCardDoiLinks();
+    initAbstractPopup();
+    enableAbstractButtons();
+    window.filterSelection(currentFilter || "all");
+    updateCardRoleTagsForSelectedAuthor();
+    updateRoleFilterCounts();
+    initPlumXWidgets();
+    initAltmetricWidgets();
+    updatePublicationCitationCounts();
+    scheduleMobileFrameResizeFromPublicationPage();
+  }
+
+  window.changePublicationSort = function (sortBy) {
+    currentSortBy = ["year", "role", "rank", "if", "cited"].includes(sortBy) ? sortBy : "year";
+    renderPublicationList();
+  };
+
+  function checkThumbnails() {
+    const images = document.getElementsByClassName("paper-img");
+
+    for (let img of images) {
+      const src = img.getAttribute("src");
+      const thumbBox = img.closest(".thumb-box");
+      if (!thumbBox) continue;
+
+      if (!src || src === "#" || src === "https://placeholder.com") {
+        thumbBox.style.display = "none";
+      }
+    }
+  }
+
+  function getGraphicalAbstractBubble() {
+    let bubble = document.getElementById("graphicalAbstractBubble");
+    if (bubble) return bubble;
+
+    bubble = document.createElement("div");
+    bubble.id = "graphicalAbstractBubble";
+    bubble.className = "graphical-abstract-bubble";
+    bubble.setAttribute("data-close-tooltip", "Double-click to close");
+    bubble.addEventListener("dblclick", window.pubCloseGraphicalAbstractBubble);
+    setupCloseHoverTooltip(bubble);
+    bubble.innerHTML = `
+      <div class="graphical-abstract-bubble-header">
+        <p class="graphical-abstract-bubble-title" id="graphicalAbstractBubbleTitle">Graphical abstract</p>
+        <button class="graphical-abstract-bubble-close"
+                type="button"
+                onclick="window.pubCloseGraphicalAbstractBubble()"
+                aria-label="Close graphical abstract preview">&times;</button>
+      </div>
+      <div class="graphical-abstract-bubble-body">
+        <img class="graphical-abstract-bubble-img"
+             alt="Graphical abstract preview"
+             data-graphical-abstract-index="0"
+             onerror="window.pubGraphicalAbstractNext && window.pubGraphicalAbstractNext(this);">
+      </div>
+    `;
+    document.body.appendChild(bubble);
+    return bubble;
+  }
+
+  function positionGraphicalAbstractBubble(bubble, anchor) {
+    const rect = anchor.getBoundingClientRect();
+    const margin = 12;
+    const width = Math.min(760, window.innerWidth - margin * 2);
+    const height = Math.min(Math.round(window.innerHeight * 0.80), 820);
+    const left = Math.max(margin, Math.min(rect.left, window.innerWidth - width - margin));
+    const belowTop = rect.bottom + 8;
+    const aboveTop = rect.top - height - 8;
+    const top = belowTop + height <= window.innerHeight - margin
+      ? belowTop
+      : Math.max(margin, aboveTop);
+
+    bubble.style.width = width + "px";
+    bubble.style.left = left + "px";
+    bubble.style.top = top + "px";
+  }
+
+  window.pubGraphicalAbstractNext = function (img) {
+    if (!img) return;
+
+    let candidates = [];
+    try {
+      candidates = JSON.parse(img.getAttribute("data-graphical-abstract-candidates") || "[]");
+    } catch (error) {
+      candidates = [];
+    }
+
+    const currentIndex = Number(img.getAttribute("data-graphical-abstract-index") || "0");
+    const nextIndex = currentIndex + 1;
+
+    if (nextIndex < candidates.length) {
+      img.setAttribute("data-graphical-abstract-index", String(nextIndex));
+      img.src = candidates[nextIndex];
+      return;
+    }
+
+    img.removeAttribute("src");
+  };
+
+  window.pubOpenGraphicalAbstractBubble = function (button) {
+    if (!button) return;
+
+    let candidates = [];
+    try {
+      candidates = JSON.parse(button.dataset.graphicalAbstractCandidates || "[]");
+    } catch (error) {
+      candidates = [];
+    }
+
+    if (!candidates.length) return;
+
+    const bubble = getGraphicalAbstractBubble();
+    const currentKey = bubble.getAttribute("data-graphical-abstract-key") || "";
+    const nextKey = (button.dataset.graphicalAbstractTitle || "") + "|" + candidates[0];
+    if (bubble.classList.contains("is-open") && currentKey === nextKey) {
+      window.pubCloseGraphicalAbstractBubble();
+      return;
+    }
+
+    closeAbstractPopup();
+
+    const title = bubble.querySelector(".graphical-abstract-bubble-title");
+    const img = bubble.querySelector(".graphical-abstract-bubble-img");
+
+    bubble.setAttribute("data-graphical-abstract-key", nextKey);
+    if (title) title.textContent = button.dataset.graphicalAbstractTitle || "Graphical abstract";
+    if (img) {
+      img.setAttribute("data-graphical-abstract-index", "0");
+      img.setAttribute("data-graphical-abstract-candidates", JSON.stringify(candidates));
+      img.src = candidates[0];
+    }
+
+    positionGraphicalAbstractBubble(bubble, button);
+    bubble.classList.add("is-open");
+  };
+
+  window.pubCloseGraphicalAbstractBubble = function () {
+    const bubble = document.getElementById("graphicalAbstractBubble");
+    if (!bubble) return;
+
+    bubble.classList.remove("is-open");
+    bubble.removeAttribute("data-graphical-abstract-key");
+    const img = bubble.querySelector(".graphical-abstract-bubble-img");
+    if (img) img.removeAttribute("src");
+  };
+
+  function shouldIgnoreCardDoiClick(event) {
+    if (!event || event.defaultPrevented) return true;
+
+    const target = event.target;
+    if (!target) return false;
+
+    if (target.closest("a, button, input, textarea, select, label, summary, [role='button'], [contenteditable='true']")) {
+      return true;
+    }
+
+    const selection = window.getSelection ? String(window.getSelection()).trim() : "";
+    if (selection.length > 0) return true;
+
+    return false;
+  }
+
+  function enablePaperCardDoiLinks() {
+    const items = Array.from(document.querySelectorAll("#itemContainer .filterItem"));
+    const TOUCH_TAP_MOVE_PX = 10;
+    const TOUCH_TAP_MAX_MS = 450;
+    let touchStart = {
+      item: null,
+      x: 0,
+      y: 0,
+      time: 0,
+      ignored: false,
+      moved: false
+    };
+
+    for (const item of items) {
+      if (item.dataset.cardDoiBound === "true") continue;
+      item.dataset.cardDoiBound = "true";
+
+      function openCardDoi(event) {
+        if (shouldIgnoreCardDoiClick(event)) return;
+
+        const url = item.dataset.doiUrl;
+        if (url && url !== "#") {
+          window.open(url, "_blank", "noopener");
+        }
+      }
+
+      item.addEventListener("click", function (event) {
+        if (getCardDoiOpenClickMode() !== "single") return;
+        openCardDoi(event);
+      });
+
+      item.addEventListener("dblclick", function (event) {
+        if (getCardDoiOpenClickMode() !== "double") return;
+        openCardDoi(event);
+      });
+
+      item.addEventListener("touchstart", function (event) {
+        if (!event.touches || event.touches.length !== 1) return;
+
+        const touch = event.touches[0];
+        touchStart = {
+          item: item,
+          x: touch.clientX,
+          y: touch.clientY,
+          time: Date.now(),
+          ignored: shouldIgnoreCardDoiClick(event),
+          moved: false
+        };
+      }, { passive: true });
+
+      item.addEventListener("touchmove", function (event) {
+        if (touchStart.item !== item || !event.touches || event.touches.length !== 1) return;
+
+        const touch = event.touches[0];
+        const dx = Math.abs(touch.clientX - touchStart.x);
+        const dy = Math.abs(touch.clientY - touchStart.y);
+
+        if (dx > TOUCH_TAP_MOVE_PX || dy > TOUCH_TAP_MOVE_PX) {
+          touchStart.moved = true;
+        }
+      }, { passive: true });
+
+      item.addEventListener("touchend", function (event) {
+        if (!event.changedTouches || event.changedTouches.length !== 1) return;
+        if (touchStart.item !== item || touchStart.ignored) return;
+
+        const touch = event.changedTouches[0];
+        const dx = Math.abs(touch.clientX - touchStart.x);
+        const dy = Math.abs(touch.clientY - touchStart.y);
+        const elapsed = Date.now() - touchStart.time;
+        const moved = touchStart.moved || dx > TOUCH_TAP_MOVE_PX || dy > TOUCH_TAP_MOVE_PX;
+
+        touchStart.item = null;
+
+        if (moved || elapsed > TOUCH_TAP_MAX_MS) return;
+
+        event.preventDefault();
+        openCardDoi(event);
+      }, { passive: false });
+
+      item.addEventListener("keydown", function (event) {
+        if (event.key !== "Enter" && event.key !== " ") return;
+        if (shouldIgnoreCardDoiClick(event)) return;
+
+        event.preventDefault();
+
+        const url = item.dataset.doiUrl;
+        if (url && url !== "#") {
+          window.open(url, "_blank", "noopener");
+        }
+      });
+    }
+  }
+
+  function initAbstractPopup() {
+    const app = document.getElementById("publicationApp");
+    if (!app || document.getElementById("abstractPopup")) return;
+
+    app.insertAdjacentHTML("beforeend", `
+      <div id="abstractPopup" class="abstract-popup" role="dialog" aria-modal="false" aria-labelledby="abstractPopupTitle">
+        <div class="abstract-popup-panel" data-close-tooltip="Double-click to close">
+          <div class="abstract-popup-header">
+            <h3 id="abstractPopupTitle" class="abstract-popup-title">Abstract</h3>
+            <button type="button" class="abstract-popup-close" aria-label="Close abstract">&times;</button>
+          </div>
+          <div id="abstractPopupBody" class="abstract-popup-body"></div>
+        </div>
+      </div>
+    `);
+
+    const popup = document.getElementById("abstractPopup");
+    const closeButton = popup.querySelector(".abstract-popup-close");
+    const panel = popup.querySelector(".abstract-popup-panel");
+
+    popup.addEventListener("click", function (event) {
+      event.stopPropagation();
+    });
+
+    if (panel) {
+      panel.addEventListener("dblclick", closeAbstractPopup);
+      setupCloseHoverTooltip(panel);
+    }
+
+    closeButton.addEventListener("click", closeAbstractPopup);
+
+    document.addEventListener("click", function (event) {
+      if (!popup.classList.contains("is-open")) return;
+      if (event.target && event.target.closest && event.target.closest(".abstract-button")) return;
+      if (!popup.contains(event.target)) closeAbstractPopup();
+    });
+
+    document.addEventListener("click", function (event) {
+      const bubble = document.getElementById("graphicalAbstractBubble");
+      if (!bubble || !bubble.classList.contains("is-open")) return;
+      if (event.target && event.target.closest && event.target.closest(".graphical-abstract-button")) return;
+      if (!bubble.contains(event.target)) window.pubCloseGraphicalAbstractBubble();
+    });
+
+    document.addEventListener("keydown", function (event) {
+      if (event.key === "Escape" && popup.classList.contains("is-open")) {
+        closeAbstractPopup();
+      }
+      if (event.key === "Escape") {
+        window.pubCloseGraphicalAbstractBubble();
+      }
+    });
+  }
+
+  function positionAbstractPopup(popup, anchor) {
+    const margin = 10;
+    const fallbackTop = Math.max(margin, Math.round(window.innerHeight * 0.18));
+    const fallbackLeft = margin;
+
+    if (!anchor || !anchor.getBoundingClientRect) {
+      popup.style.top = fallbackTop + "px";
+      popup.style.left = fallbackLeft + "px";
+      return;
+    }
+
+    const anchorRect = anchor.getBoundingClientRect();
+    const popupWidth = Math.min(420, window.innerWidth - margin * 2);
+    const popupHeight = Math.min(440, Math.round(window.innerHeight * 0.56));
+    const opensAbove = anchorRect.bottom + popupHeight + margin > window.innerHeight && anchorRect.top > popupHeight + margin;
+    const top = opensAbove ? anchorRect.top - popupHeight - margin : anchorRect.bottom + margin;
+    const preferredLeft = anchorRect.left;
+    const left = Math.min(Math.max(margin, preferredLeft), Math.max(margin, window.innerWidth - popupWidth - margin));
+
+    popup.style.top = Math.max(margin, Math.round(top)) + "px";
+    popup.style.left = Math.round(left) + "px";
+  }
+
+  function getCloseHoverTooltip() {
+    let tooltip = document.getElementById("closeHoverTooltip");
+    if (tooltip) return tooltip;
+
+    tooltip = document.createElement("div");
+    tooltip.id = "closeHoverTooltip";
+    tooltip.className = "close-hover-tooltip";
+    document.body.appendChild(tooltip);
+    return tooltip;
+  }
+
+  function setupCloseHoverTooltip(element) {
+    if (!element || element.dataset.closeTooltipBound === "true") return;
+    element.dataset.closeTooltipBound = "true";
+
+    element.addEventListener("mousemove", function (event) {
+      const text = element.getAttribute("data-close-tooltip") || "";
+      if (!text) return;
+
+      const tooltip = getCloseHoverTooltip();
+      tooltip.textContent = text;
+      tooltip.style.display = "block";
+
+      const offset = 12;
+      const width = tooltip.offsetWidth || 0;
+      const height = tooltip.offsetHeight || 0;
+      const left = Math.min(event.clientX + offset, window.innerWidth - width - offset);
+      const top = Math.min(event.clientY + offset, window.innerHeight - height - offset);
+
+      tooltip.style.left = Math.max(offset, left) + "px";
+      tooltip.style.top = Math.max(offset, top) + "px";
+    });
+
+    element.addEventListener("mouseleave", function () {
+      const tooltip = document.getElementById("closeHoverTooltip");
+      if (tooltip) tooltip.style.display = "none";
+    });
+  }
+
+  function openAbstractPopup(title, body, source, doi, anchor) {
+    const popup = document.getElementById("abstractPopup");
+    const titleEl = document.getElementById("abstractPopupTitle");
+    const bodyEl = document.getElementById("abstractPopupBody");
+    if (!popup || !titleEl || !bodyEl) return;
+
+    const nextKey = String(title || "Abstract") + "|" + String(doi || "");
+    const currentKey = popup.getAttribute("data-abstract-key") || "";
+    if (popup.classList.contains("is-open") && currentKey === nextKey) {
+      closeAbstractPopup();
+      return;
+    }
+
+    window.pubCloseGraphicalAbstractBubble();
+
+    popup.setAttribute("data-abstract-key", nextKey);
+    titleEl.textContent = title || "Abstract";
+    bodyEl.innerHTML = `
+      <div>${escapeHtml(body || "Abstract unavailable.")}</div>
+      <div class="abstract-popup-source">
+        Source: ${escapeHtml(source || "DOI metadata")}${doi ? ` | DOI: ${escapeHtml(doi)}` : ""}
+      </div>
+    `;
+    positionAbstractPopup(popup, anchor);
+    popup.classList.add("is-open");
+
+    const panel = popup.querySelector(".abstract-popup-panel");
+    bodyEl.scrollTop = 0;
+    if (panel) panel.scrollTop = 0;
+
+    window.requestAnimationFrame(function () {
+      bodyEl.scrollTop = 0;
+      if (panel) panel.scrollTop = 0;
+    });
+
+    const closeButton = popup.querySelector(".abstract-popup-close");
+    if (closeButton) {
+      try {
+        closeButton.focus({ preventScroll: true });
+      } catch (error) {
+        closeButton.focus();
+      }
+    }
+  }
+
+  function closeAbstractPopup() {
+    const popup = document.getElementById("abstractPopup");
+    if (!popup) return;
+
+    popup.classList.remove("is-open");
+    popup.removeAttribute("data-abstract-key");
+  }
+
+  function setAbstractButtonState(button, text, isLoading) {
+    if (!button) return;
+
+    button.textContent = text;
+    button.disabled = Boolean(isLoading);
+    button.classList.toggle("is-loading", Boolean(isLoading));
+  }
+
+  function getAbstractCacheKey(doi) {
+    return "publication_abstract_" + doi.toLowerCase();
+  }
+
+  function getCachedAbstract(doi) {
+    try {
+      const raw = localStorage.getItem(getAbstractCacheKey(doi));
+      if (!raw) return null;
+
+      const cached = JSON.parse(raw);
+      const maxAge = CONFIG.abstractCacheHours * 60 * 60 * 1000;
+
+      if (!cached || !cached.abstract || !cached.savedAt) return null;
+      if (Date.now() - cached.savedAt > maxAge) return null;
+
+      return cached;
+    } catch (error) {
+      return null;
+    }
+  }
+
+  function setCachedAbstract(doi, abstractInfo) {
+    try {
+      localStorage.setItem(getAbstractCacheKey(doi), JSON.stringify({
+        abstract: abstractInfo.abstract,
+        source: abstractInfo.source,
+        savedAt: Date.now()
+      }));
+    } catch (error) {}
+  }
+
+  function abstractFromOpenAlexIndex(index) {
+    if (!index || typeof index !== "object") return "";
+
+    const words = [];
+
+    Object.keys(index).forEach(word => {
+      const positions = Array.isArray(index[word]) ? index[word] : [];
+      positions.forEach(position => {
+        if (Number.isFinite(position)) words[position] = word;
+      });
+    });
+
+    return words.filter(Boolean).join(" ").trim();
+  }
+
+  async function fetchOpenAlexAbstract(doi) {
+    let url = "https://api.openalex.org/works/doi:" + encodeURIComponent(doi) + "?select=doi,title,abstract_inverted_index";
+
+    if (CONFIG.openAlexApiKey && CONFIG.openAlexApiKey.trim()) {
+      url += "&api_key=" + encodeURIComponent(CONFIG.openAlexApiKey.trim());
+    }
+
+    const response = await fetch(url, {
+      method: "GET",
+      headers: { "Accept": "application/json" }
+    });
+
+    if (!response.ok) {
+      throw new Error("OpenAlex abstract request failed: HTTP " + response.status);
+    }
+
+    const data = await response.json();
+    const abstractText = abstractFromOpenAlexIndex(data.abstract_inverted_index);
+
+    if (!abstractText) {
+      throw new Error("OpenAlex abstract unavailable");
+    }
+
+    return {
+      abstract: abstractText,
+      source: "OpenAlex"
+    };
+  }
+
+  async function fetchCrossrefAbstract(doi) {
+    const url = "https://api.crossref.org/works/" + encodeURIComponent(doi);
+
+    const response = await fetch(url, {
+      method: "GET",
+      headers: { "Accept": "application/json" }
+    });
+
+    if (!response.ok) {
+      throw new Error("Crossref abstract request failed: HTTP " + response.status);
+    }
+
+    const data = await response.json();
+    const abstractText = data && data.message ? stripHtml(data.message.abstract || "") : "";
+
+    if (!abstractText) {
+      throw new Error("Crossref abstract unavailable");
+    }
+
+    return {
+      abstract: abstractText,
+      source: "Crossref"
+    };
+  }
+
+  async function fetchSemanticScholarAbstract(doi) {
+    const url = "https://api.semanticscholar.org/graph/v1/paper/DOI:" + encodeURIComponent(doi) + "?fields=title,abstract";
+
+    const response = await fetch(url, {
+      method: "GET",
+      headers: { "Accept": "application/json" }
+    });
+
+    if (!response.ok) {
+      throw new Error("Semantic Scholar abstract request failed: HTTP " + response.status);
+    }
+
+    const data = await response.json();
+    const abstractText = data && data.abstract ? String(data.abstract).trim() : "";
+
+    if (!abstractText) {
+      throw new Error("Semantic Scholar abstract unavailable");
+    }
+
+    return {
+      abstract: abstractText,
+      source: "Semantic Scholar"
+    };
+  }
+
+  function extractAbstractFromReaderText(text) {
+    const raw = String(text == null ? "" : text).replace(/\r/g, "");
+    const abstractMatch = raw.match(/(?:^|\n)#{1,6}\s*Abstract\s*\n+([\s\S]*?)(?=\n#{1,6}\s+|\n(?:Graphical abstract|Introduction|Section snippets|Keywords)\b|$)/i);
+    const fallbackMatch = raw.match(/(?:^|\n)Abstract\s*\n+([\s\S]*?)(?=\n[A-Z][^\n]{0,80}\n|$)/i);
+    const abstractText = abstractMatch ? abstractMatch[1] : (fallbackMatch ? fallbackMatch[1] : "");
+
+    return abstractText
+      .replace(/\n{2,}/g, "\n")
+      .replace(/\[[^\]]*\]\([^)]*\)/g, "")
+      .replace(/^\s*[-*]\s*/gm, "")
+      .trim();
+  }
+
+  async function fetchReaderAbstract(doi) {
+    const doiUrl = "https://doi.org/" + doi;
+    const url = "https://r.jina.ai/" + doiUrl;
+
+    const response = await fetch(url, {
+      method: "GET",
+      headers: { "Accept": "text/plain" }
+    });
+
+    if (!response.ok) {
+      throw new Error("Reader abstract request failed: HTTP " + response.status);
+    }
+
+    const text = await response.text();
+    const abstractText = extractAbstractFromReaderText(text);
+
+    if (!abstractText) {
+      throw new Error("Reader abstract unavailable");
+    }
+
+    return {
+      abstract: abstractText,
+      source: "DOI landing page"
+    };
+  }
+
+  async function fetchAbstractByDoi(doi) {
+    try {
+      return await fetchOpenAlexAbstract(doi);
+    } catch (openAlexError) {
+      console.warn("OpenAlex abstract lookup failed for DOI:", doi, openAlexError);
+    }
+
+    try {
+      return await fetchSemanticScholarAbstract(doi);
+    } catch (semanticScholarError) {
+      console.warn("Semantic Scholar abstract lookup failed for DOI:", doi, semanticScholarError);
+    }
+
+    try {
+      return await fetchReaderAbstract(doi);
+    } catch (readerError) {
+      console.warn("DOI landing page abstract lookup failed for DOI:", doi, readerError);
+    }
+
+    return await fetchCrossrefAbstract(doi);
+  }
+
+  function enableAbstractButtons() {
+    const buttons = Array.from(document.querySelectorAll(".abstract-button"));
+
+    buttons.forEach(button => {
+      if (button.dataset.abstractBound === "true") return;
+      button.dataset.abstractBound = "true";
+
+      button.addEventListener("click", async function (event) {
+        event.preventDefault();
+        event.stopPropagation();
+
+        const doi = normalizeDoi(button.dataset.doi || "");
+        const title = button.dataset.title || "Abstract";
+        const localAbstract = (button.dataset.localAbstract || "").trim();
+
+        if (localAbstract) {
+          openAbstractPopup(title, localAbstract, "Publication data", doi, button);
+        } else {
+          openAbstractPopup(title, "Abstract not available.", "Publication data", doi, button);
+        }
+      });
+    });
+  }
+
+  function setTextById(id, text) {
+    const el = document.getElementById(id);
+    if (el) el.innerText = text;
+  }
+
+  function calculateHIndex(citationCounts) {
+    const sorted = citationCounts
+      .filter(count => Number.isFinite(count))
+      .sort((a, b) => b - a);
+
+    let h = 0;
+
+    for (let i = 0; i < sorted.length; i++) {
+      if (sorted[i] >= i + 1) {
+        h = i + 1;
+      } else {
+        break;
+      }
+    }
+
+    return h;
+  }
+
+  function calculateI10Index(citationCounts) {
+    return citationCounts.filter(count => Number.isFinite(count) && count >= 10).length;
+  }
+
+  function itemHasRoleForCurrentAuthorBasis(item, role) {
+    const isMultiAuthorConcern = AUTHORS_CONCERN.length >= 2;
+
+    if (isMultiAuthorConcern && selectedAuthorSlug) {
+      const authorRolesMap = parseAuthorRolesMap(item);
+      const selectedAuthorRoles = authorRolesMap[selectedAuthorSlug] || [];
+      return selectedAuthorRoles.includes(role);
+    }
+
+    return (item.dataset.roles || "").split(/\s+/).includes(role);
+  }
+
+  function itemBelongsToCurrentAuthorBasis(item) {
+    const isMultiAuthorConcern = AUTHORS_CONCERN.length >= 2;
+
+    if (isMultiAuthorConcern && selectedAuthorSlug) {
+      return (item.dataset.authors || "").split(/\s+/).includes(selectedAuthorSlug);
+    }
+
+    return true;
+  }
+
+  function updateRoleFilterCounts() {
+    const roles = ["corresponding", "first", "co-first", "co-author"];
+    const items = Array.from(document.querySelectorAll("#itemContainer .filterItem"));
+
+    let allCount = 0;
+
+    items.forEach(item => {
+      if (!itemBelongsToCurrentAuthorBasis(item)) return;
+      allCount++;
+    });
+
+    document.querySelectorAll(`[data-role-count="all"]`).forEach(el => {
+      el.innerText = allCount;
+    });
+
+    roles.forEach(role => {
+      let count = 0;
+
+      items.forEach(item => {
+        if (!itemBelongsToCurrentAuthorBasis(item)) return;
+        if (itemHasRoleForCurrentAuthorBasis(item, role)) count++;
+      });
+
+      document.querySelectorAll(`[data-role-count="${role}"]`).forEach(el => {
+        el.innerText = count;
+      });
+    });
+  }
+
+  window.filterSelection = function (filterValue) {
+    currentFilter = filterValue || "all";
+
+    const isMultiAuthorConcern = AUTHORS_CONCERN.length >= 2;
+
+    if (currentFilter === "all") {
+      selectedAuthorSlug = "";
+      selectedAuthorName = "";
+    }
+
+    if (currentFilter.startsWith("author:")) {
+      selectedAuthorSlug = currentFilter.replace("author:", "");
+      selectedAuthorName = AUTHORS_CONCERN.find(name => slugify(name) === selectedAuthorSlug) || "";
+    }
+
+    const sections = document.getElementsByClassName("yearSection");
+    let globalTotal = 0;
+
+    for (let section of sections) {
+      const sectionItems = section.getElementsByClassName("filterItem");
+      let sectionVisibleCount = 0;
+
+      for (let item of sectionItems) {
+        let visible = false;
+
+        if (currentFilter === "all") {
+          visible = true;
+        } else if (currentFilter.startsWith("author:")) {
+          visible = (item.dataset.authors || "").split(/\s+/).includes(selectedAuthorSlug);
+        } else if (currentFilter.startsWith("role:")) {
+          const role = currentFilter.replace("role:", "");
+
+          if (isMultiAuthorConcern && selectedAuthorSlug) {
+            const authorRolesMap = parseAuthorRolesMap(item);
+            const selectedAuthorRoles = authorRolesMap[selectedAuthorSlug] || [];
+            visible = selectedAuthorRoles.includes(role);
+          } else {
+            visible = (item.dataset.roles || "").split(/\s+/).includes(role);
+          }
+        }
+
+        if (visible) {
+          item.classList.remove("pub-hidden");
+          sectionVisibleCount++;
+          globalTotal++;
+        } else {
+          item.classList.add("pub-hidden");
+        }
+      }
+
+      if (sectionVisibleCount > 0) {
+        section.classList.remove("pub-hidden");
+      } else {
+        section.classList.add("pub-hidden");
+      }
+
+      const countLabel = section.querySelector(".year-count");
+      if (countLabel) {
+        countLabel.innerText = `${sectionVisibleCount} paper${sectionVisibleCount !== 1 ? "s" : ""}`;
+      }
+    }
+
+    const totalCounter = document.getElementById("totalPaperCount");
+    if (totalCounter) {
+      totalCounter.innerText = globalTotal;
+    }
+
+    document.querySelectorAll(".publication-filter-button").forEach(button => {
+      const buttonFilter = button.dataset.filter || "";
+      let active = false;
+
+      if (buttonFilter === "all") {
+        active = currentFilter === "all";
+      } else if (buttonFilter.startsWith("author:")) {
+        active = selectedAuthorSlug && buttonFilter === "author:" + selectedAuthorSlug;
+      } else if (buttonFilter.startsWith("role:")) {
+        active = currentFilter === buttonFilter;
+      }
+
+      button.classList.toggle("active", active);
+    });
+
+    updateCardRoleTagsForSelectedAuthor();
+    updateRoleFilterCounts();
+    updateVisibleJcrMetricSummary();
+    updateVisibleTotalCitations();
+  };
+
+  function updateVisibleJcrMetricSummary() {
+    const visibleItems = Array.from(document.querySelectorAll("#itemContainer .filterItem:not(.pub-hidden)"));
+    const counts = countJcrMetricSummary(visibleItems.map(item => ({
+      top5: item.dataset.jcrTop5 === "1",
+      top10: item.dataset.jcrTop10 === "1",
+      quartile: item.dataset.jcrQuartile || ""
+    })));
+
+    const targets = {
+      jcrTop5Count: counts.top5,
+      jcrTop10Count: counts.top10,
+      jcrQ1Count: counts.q1,
+      jcrQ2Count: counts.q2,
+      jcrQ3Count: counts.q3,
+      jcrQ4Count: counts.q4
+    };
+
+    Object.keys(targets).forEach(id => {
+      const element = document.getElementById(id);
+      if (element) element.innerText = targets[id];
+    });
+  }
+
+  function getCitationCacheKey(doi) {
+    return "publication_citation_" + citationSourceMode + "_" + doi.toLowerCase();
+  }
+
+  function getCachedCitation(doi) {
+    try {
+      const raw = localStorage.getItem(getCitationCacheKey(doi));
+      if (!raw) return null;
+
+      const cached = JSON.parse(raw);
+      const maxAge = CONFIG.citationCacheHours * 60 * 60 * 1000;
+
+      if (!cached || typeof cached.count !== "number" || !cached.savedAt) return null;
+      if (Date.now() - cached.savedAt > maxAge) return null;
+
+      return cached;
+    } catch (error) {
+      return null;
+    }
+  }
+
+  function setCachedCitation(doi, citationInfo) {
+    try {
+      localStorage.setItem(getCitationCacheKey(doi), JSON.stringify({
+        count: citationInfo.count,
+        source: citationInfo.source,
+        savedAt: Date.now()
+      }));
+    } catch (error) {}
+  }
+
+  function setCitationBadgeState(badge, text, state) {
+    if (!badge) return;
+
+    badge.classList.remove("is-loading", "is-error");
+    if (state) badge.classList.add(state);
+    badge.textContent = text;
+  }
+
+  function setItemCitationState(item, status, count, source) {
+    item.dataset.citationStatus = status || "";
+
+    if (typeof count === "number") {
+      item.dataset.citationCount = String(count);
+    } else {
+      delete item.dataset.citationCount;
+    }
+
+    if (source) {
+      item.dataset.citationSource = source;
+    } else {
+      delete item.dataset.citationSource;
+    }
+
+    const doi = normalizeDoi(item.dataset.doi || "");
+    if (doi && typeof count === "number" && Number.isFinite(count)) {
+      const paper = PAPERS.find(entry => normalizeDoi(entry.doi || "") === doi);
+      if (paper) paper.citationSortCount = count;
+    }
+
+    scheduleCitationSortRefresh();
+
+    updateVisibleTotalCitations();
+  }
+
+  function updateVisibleTotalCitations() {
+    const visibleItems = Array.from(document.querySelectorAll("#itemContainer .filterItem"))
+      .filter(item => !item.classList.contains("pub-hidden"));
+
+    let total = 0;
+    let pending = 0;
+    const counts = [];
+
+    for (const item of visibleItems) {
+      if (item.dataset.citationStatus === "loading") {
+        pending++;
+      }
+
+      const count = Number(item.dataset.citationCount);
+      if (Number.isFinite(count)) {
+        total += count;
+        counts.push(count);
+      }
+    }
+
+    const hIndex = calculateHIndex(counts);
+    const i10Index = calculateI10Index(counts);
+
+    if (visibleItems.length === 0) {
+      setTextById("totalCitationCount", "0");
+      setTextById("hIndexCount", "0");
+      setTextById("i10IndexCount", "0");
+    } else if (pending > 0) {
+      setTextById("totalCitationCount", total + "+");
+      setTextById("hIndexCount", hIndex + "+");
+      setTextById("i10IndexCount", i10Index + "+");
+    } else if (counts.length === 0) {
+      setTextById("totalCitationCount", "unavailable");
+      setTextById("hIndexCount", "unavailable");
+      setTextById("i10IndexCount", "unavailable");
+    } else {
+      setTextById("totalCitationCount", String(total));
+      setTextById("hIndexCount", String(hIndex));
+      setTextById("i10IndexCount", String(i10Index));
+    }
+  }
+
+  function scheduleMobileFrameResizeFromPublicationPage() {
+    if (typeof window.__publicationScheduleMobileFrameResize === "function") {
+      window.__publicationScheduleMobileFrameResize();
+    }
+  }
+
+  async function fetchCrossrefCitationCount(doi) {
+    const url = "https://api.crossref.org/works/" + encodeURIComponent(doi);
+
+    const response = await fetch(url, {
+      method: "GET",
+      headers: { "Accept": "application/json" }
+    });
+
+    if (!response.ok) {
+      throw new Error("Crossref request failed: HTTP " + response.status);
+    }
+
+    const data = await response.json();
+    const count = data && data.message ? data.message["is-referenced-by-count"] : null;
+
+    if (typeof count !== "number") {
+      throw new Error("Crossref citation count unavailable");
+    }
+
+    return {
+      count: count,
+      source: "Crossref"
+    };
+  }
+
+  async function fetchOpenAlexCitationCount(doi) {
+    let url = "https://api.openalex.org/works/doi:" + encodeURIComponent(doi) + "?select=doi,cited_by_count";
+
+    if (CONFIG.openAlexApiKey && CONFIG.openAlexApiKey.trim()) {
+      url += "&api_key=" + encodeURIComponent(CONFIG.openAlexApiKey.trim());
+    }
+
+    const response = await fetch(url, {
+      method: "GET",
+      headers: { "Accept": "application/json" }
+    });
+
+    if (!response.ok) {
+      throw new Error("OpenAlex request failed: HTTP " + response.status);
+    }
+
+    const data = await response.json();
+
+    if (typeof data.cited_by_count !== "number") {
+      throw new Error("OpenAlex citation count unavailable");
+    }
+
+    return {
+      count: data.cited_by_count,
+      source: "OpenAlex"
+    };
+  }
+
+  async function fetchCitationCount(doi) {
+    if (citationSourceMode === "openalex") {
+      return await fetchOpenAlexCitationCount(doi);
+    }
+
+    return await fetchCrossrefCitationCount(doi);
+  }
+
+  window.changeCitationSource = function (source) {
+    citationSourceMode = source === "openalex" ? "openalex" : "crossref";
+
+    const select = document.getElementById("citationSourceSelect");
+    if (select) {
+      select.value = citationSourceMode;
+    }
+
+    const items = Array.from(document.querySelectorAll("#itemContainer .filterItem"));
+
+    items.forEach(item => {
+      delete item.dataset.citationStatus;
+      delete item.dataset.citationCount;
+      delete item.dataset.citationSource;
+      delete item.dataset.citationDoi;
+
+      const badge = item.querySelector(".auto-citation-count");
+      if (badge) {
+        setCitationBadgeState(badge, "Citations: loading...", "is-loading");
+      }
+    });
+
+    setTextById("totalCitationCount", "loading...");
+    setTextById("hIndexCount", "loading...");
+    setTextById("i10IndexCount", "loading...");
+
+    updatePublicationCitationCounts();
+  };
+
+  async function updatePublicationCitationCounts() {
+    const items = Array.from(document.querySelectorAll("#itemContainer .filterItem"));
+
+    for (const item of items) {
+      const doi = normalizeDoi(item.dataset.doi || "");
+      const badge = item.querySelector(".auto-citation-count");
+
+      if (!doi) {
+        setItemCitationState(item, "missing", null, null);
+        continue;
+      }
+
+      if (item.dataset.citationDoi === doi && item.dataset.citationStatus === "ready") {
+        continue;
+      }
+
+      item.dataset.citationDoi = doi;
+
+      const cached = getCachedCitation(doi);
+      if (cached) {
+        setCitationBadgeState(badge, "Citations: " + cached.count + " (" + cached.source + ")", "");
+        setItemCitationState(item, "ready", cached.count, cached.source);
+        continue;
+      }
+
+      if (item.dataset.citationStatus === "loading") {
+        continue;
+      }
+
+      setCitationBadgeState(badge, "Citations: loading...", "is-loading");
+      setItemCitationState(item, "loading", null, null);
+
+      try {
+        const citationInfo = await fetchCitationCount(doi);
+        setCachedCitation(doi, citationInfo);
+        setCitationBadgeState(badge, "Citations: " + citationInfo.count + " (" + citationInfo.source + ")", "");
+        setItemCitationState(item, "ready", citationInfo.count, citationInfo.source);
+      } catch (error) {
+        console.warn("Citation update failed for DOI:", doi, error);
+        setCitationBadgeState(badge, "Citations: unavailable", "is-error");
+        setItemCitationState(item, "error", null, null);
+      }
+    }
+
+    updateVisibleTotalCitations();
+  }
+
+  async function initPublicationPage() {
+    const app = document.getElementById("publicationApp");
+    applyMobileImageDisplayMode();
+
+    app.innerHTML = `
+      <div class="publication-summary-box">
+        <div class="publication-summary-title">Publications by Nhat-Tam Nguyen</div>
+        <div class="publication-summary-metrics">
+          <div class="publication-metric-card paper-metric">
+            <span class="publication-metric-label">Total Papers</span>
+            <span class="paper-total-stat"><span class="paper-total-label">Total</span> <strong id="totalPaperCount">loading...</strong></span>
+            ${renderJcrMetricStats()}
+          </div>
+
+          <div class="publication-metric-card citation-metric">
+            <span class="publication-metric-label">Citation Metrics</span>
+
+            <span class="citation-stat-group">
+              <span class="citation-stat">Cites <strong id="totalCitationCount">loading...</strong></span>
+              <span class="citation-stat">h-index <strong id="hIndexCount">loading...</strong></span>
+              <span class="citation-stat">i10-index <strong id="i10IndexCount">loading...</strong></span>
+            </span>
+
+            ${renderCitationSourceControl()}
+          </div>
+        </div>
+      </div>
+      <div class="load-error">Loading publication data ...</div>
+    `;
+
+    try {
+      const [paperRows, metricRows, concernRows] = await Promise.all([
+        fetchSheetRows(CONFIG.papersSheetName),
+        fetchSheetRows(CONFIG.journalMetricsSheetName),
+        fetchSheetRows(CONFIG.authorsConcernSheetName)
+      ]);
+
+      AUTHORS_CONCERN = parseAuthorsConcernRows(concernRows);
+
+      JOURNAL_METRICS = {};
+      metricRows.map(parseJournalMetricRow).forEach(metric => {
+        if (metric.journal) {
+          JOURNAL_METRICS[metric.journal] = metric;
+        }
+      });
+
+      PAPERS = paperRows
+        .map((row, index) => parsePaperRow(Object.assign({}, row, { sourceRowIndex: index })))
+        .filter(paper => paper.enabled && paper.title && paper.authors.length);
+
+      renderPublicationList();
+    } catch (error) {
+      console.error(error);
+      app.innerHTML = `
+        <div class="load-error">
+          <strong>Publication data could not be loaded.</strong><br>
+          Please check that the Google Sheet is shared as “Anyone with the link can view” and that the sheet names are exactly
+          <strong>Papers</strong>, <strong>AuthorsConcern</strong>, and <strong>JournalMetrics</strong>.<br>
+          Error: ${escapeHtml(error.message || error)}<br><br>
+          If this file is still an uploaded Excel file, open it in Google Sheets and save/convert it as a native Google Sheet.
+        </div>
+      `;
+    }
+  }
+
+  function enableMobileScrollHandoffOnly() {
+    const mobileQuery = window.matchMedia("(max-width: 768px)");
+    const BOUNDARY_EPS = 3;
+    const HANDOFF_THRESHOLD = 6;
+    const HANDOFF_EDGE_ZONE = 90;
+    const MOBILE_FRAME_EXTRA_SPACE = 500;
+    let lastTouchY = 0;
+    let frameExpanded = false;
+    let resizeTimer = null;
+
+    function isMobile() {
+      return mobileQuery.matches;
+    }
+
+    function getScroller() {
+      return document.scrollingElement || document.documentElement || document.body;
+    }
+
+    function getContentHeight() {
+      const body = document.body;
+      const html = document.documentElement;
+      const container = document.getElementById("itemContainer");
+
+      return Math.max(
+        body ? body.scrollHeight : 0,
+        body ? body.offsetHeight : 0,
+        html ? html.scrollHeight : 0,
+        html ? html.offsetHeight : 0,
+        container ? container.getBoundingClientRect().bottom + 24 : 0
+      );
+    }
+
+    function scheduleMobileFrameResize() {
+      if (!isMobile()) return;
+
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(function () {
+        tryResizeContainingFrame();
+      }, 80);
+    }
+
+    function scheduleMobileFrameResizeSeries() {
+      if (!isMobile()) return;
+
+      tryResizeContainingFrame();
+      scheduleMobileFrameResize();
+      window.requestAnimationFrame(tryResizeContainingFrame);
+      setTimeout(tryResizeContainingFrame, 250);
+      setTimeout(tryResizeContainingFrame, 800);
+      setTimeout(tryResizeContainingFrame, 1600);
+    }
+
+    function tryResizeContainingFrame() {
+      if (!isMobile()) return false;
+
+      try {
+        if (!window.frameElement) return false;
+
+        const nextHeight = Math.ceil(getContentHeight() + MOBILE_FRAME_EXTRA_SPACE);
+        if (!nextHeight || nextHeight < 100) return false;
+
+        window.frameElement.style.height = nextHeight + "px";
+        window.frameElement.style.minHeight = nextHeight + "px";
+        window.frameElement.style.overflow = "visible";
+        window.frameElement.setAttribute("scrolling", "no");
+        document.documentElement.style.overflow = "visible";
+        document.body.style.overflow = "visible";
+        document.body.style.minHeight = nextHeight + "px";
+
+        frameExpanded = true;
+        return true;
+      } catch (error) {
+        frameExpanded = false;
+        return false;
+      }
+    }
+
+    function atTop() {
+      const scroller = getScroller();
+      return scroller.scrollTop <= BOUNDARY_EPS;
+    }
+
+    function atBottom() {
+      const scroller = getScroller();
+      return scroller.scrollTop + scroller.clientHeight >= scroller.scrollHeight - BOUNDARY_EPS;
+    }
+
+    function passScrollToWebsite(deltaY) {
+      if (!isMobile() || !deltaY) return false;
+
+      let moved = false;
+
+      try {
+        const targetWindow = window.parent && window.parent !== window ? window.parent : window;
+        targetWindow.scrollBy({ top: deltaY, left: 0, behavior: "auto" });
+        moved = true;
+      } catch (error) {
+        moved = false;
+      }
+
+      try {
+        if (window.parent && window.parent !== window) {
+          window.parent.postMessage({
+            type: "PUBLICATION_SCROLL_HANDOFF",
+            source: "publication-list",
+            deltaY: deltaY
+          }, "*");
+        }
+      } catch (error) {}
+
+      return moved;
+    }
+
+    function hasScrollableInnerPage() {
+      const scroller = getScroller();
+      return scroller.scrollHeight > scroller.clientHeight + BOUNDARY_EPS;
+    }
+
+    function getRemainingBottomScroll() {
+      const scroller = getScroller();
+      return Math.max(0, scroller.scrollHeight - scroller.clientHeight - scroller.scrollTop);
+    }
+
+    function shouldHandoff(deltaY) {
+      if (!isMobile()) return false;
+      if (frameExpanded) return false;
+      if (!hasScrollableInnerPage()) return true;
+      if (deltaY > 0 && getRemainingBottomScroll() <= HANDOFF_EDGE_ZONE) return true;
+      if (deltaY < 0 && getScroller().scrollTop <= HANDOFF_EDGE_ZONE) return true;
+      return false;
+    }
+
+    function handoffEdgeScroll(deltaY) {
+      if (!isMobile() || !deltaY) return false;
+
+      const scroller = getScroller();
+      let parentDelta = deltaY;
+
+      if (hasScrollableInnerPage()) {
+        if (deltaY > 0) {
+          const remaining = getRemainingBottomScroll();
+          const innerDelta = Math.min(deltaY, remaining);
+          if (innerDelta > 0) {
+            scroller.scrollTop += innerDelta;
+            parentDelta = deltaY - innerDelta;
+          }
+        } else if (deltaY < 0) {
+          const remaining = scroller.scrollTop;
+          const innerDelta = Math.min(Math.abs(deltaY), remaining);
+          if (innerDelta > 0) {
+            scroller.scrollTop -= innerDelta;
+            parentDelta = deltaY + innerDelta;
+          }
+        }
+      }
+
+      if (Math.abs(parentDelta) < 1) return true;
+      return passScrollToWebsite(parentDelta);
+    }
+
+    function onWheel(event) {
+      if (!shouldHandoff(event.deltaY)) return;
+
+      if (handoffEdgeScroll(event.deltaY)) {
+        event.preventDefault();
+      }
+    }
+
+    function onTouchStart(event) {
+      if (!isMobile() || !event.touches || event.touches.length === 0) return;
+      tryResizeContainingFrame();
+      lastTouchY = event.touches[0].clientY;
+    }
+
+    function onTouchMove(event) {
+      if (!isMobile() || !event.touches || event.touches.length === 0) return;
+
+      const currentY = event.touches[0].clientY;
+      const deltaY = lastTouchY - currentY;
+      lastTouchY = currentY;
+
+      if (Math.abs(deltaY) < HANDOFF_THRESHOLD || !shouldHandoff(deltaY)) return;
+
+      if (handoffEdgeScroll(deltaY)) {
+        event.preventDefault();
+      }
+    }
+
+    document.addEventListener("wheel", onWheel, { passive: false, capture: true });
+    document.addEventListener("touchstart", onTouchStart, { passive: true, capture: true });
+    document.addEventListener("touchmove", onTouchMove, { passive: false, capture: true });
+    window.addEventListener("resize", scheduleMobileFrameResize, { passive: true });
+    window.addEventListener("load", scheduleMobileFrameResizeSeries, { passive: true });
+    window.__publicationScheduleMobileFrameResize = scheduleMobileFrameResizeSeries;
+
+    if ("ResizeObserver" in window) {
+      const app = document.getElementById("publicationApp");
+      if (app) {
+        const observer = new ResizeObserver(scheduleMobileFrameResize);
+        observer.observe(app);
+      }
+    }
+
+    const originalFilterSelection = window.filterSelection;
+    if (typeof originalFilterSelection === "function") {
+      window.filterSelection = function (category) {
+        originalFilterSelection(category);
+        scheduleMobileFrameResizeSeries();
+      };
+    }
+
+    scheduleMobileFrameResizeSeries();
+  }
+
+  window.addEventListener("resize", applyMobileImageDisplayMode, { passive: true });
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", function () {
+      initPublicationPage();
+      enableMobileScrollHandoffOnly();
+    });
+  } else {
+    initPublicationPage();
+    enableMobileScrollHandoffOnly();
+  }
+})();
+</script>
+</main>
+
+<script>
+(() => {
+  "use strict";
+
+  const hero = document.getElementById("publicationHero");
+  const canvas = document.getElementById("publicationParticleCanvas");
+  if (!hero || !canvas) return;
+
+  const context = canvas.getContext("2d");
+  if (!context) return;
+
+  const DESKTOP_PARTICLE_COUNT = 70;
+  const MOBILE_PARTICLE_COUNT = 36;
+  const CONNECTION_DISTANCE = 130;
+  const POINTER_DISTANCE = 160;
+  const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+  const compactViewport = window.matchMedia("(max-width: 600px)");
+  const pointer = { x: -1000, y: -1000, active: false };
+  let particles = [];
+  let width = 0;
+  let height = 0;
+  let animationFrame = 0;
+
+  class Particle {
+    constructor() {
+      this.x = Math.random() * width;
+      this.y = Math.random() * height;
+      this.vx = (Math.random() - 0.5) * 0.8;
+      this.vy = (Math.random() - 0.5) * 0.8;
+      this.radius = Math.random() * 2 + 1.5;
+      this.alpha = Math.random() * 0.5 + 0.4;
+    }
+
+    update() {
+      if (pointer.active) {
+        const dx = pointer.x - this.x;
+        const dy = pointer.y - this.y;
+        const distance = Math.hypot(dx, dy);
+        if (distance < POINTER_DISTANCE) {
+          this.vx += dx * 0.0015;
+          this.vy += dy * 0.0015;
+        }
+      }
+
+      this.x += this.vx;
+      this.y += this.vy;
+      this.vx *= 0.99;
+      this.vy *= 0.99;
+      if (this.x <= 0 || this.x >= width) this.vx *= -1;
+      if (this.y <= 0 || this.y >= height) this.vy *= -1;
+      this.x = Math.max(0, Math.min(width, this.x));
+      this.y = Math.max(0, Math.min(height, this.y));
+    }
+  }
+
+  function resizeCanvas() {
+    const bounds = hero.getBoundingClientRect();
+    const pixelRatio = Math.min(window.devicePixelRatio || 1, 2);
+    width = Math.max(1, bounds.width);
+    height = Math.max(1, bounds.height);
+    canvas.width = Math.round(width * pixelRatio);
+    canvas.height = Math.round(height * pixelRatio);
+    canvas.style.width = `${width}px`;
+    canvas.style.height = `${height}px`;
+    context.setTransform(pixelRatio, 0, 0, pixelRatio, 0, 0);
+    const particleCount = compactViewport.matches ? MOBILE_PARTICLE_COUNT : DESKTOP_PARTICLE_COUNT;
+    particles = Array.from({ length: particleCount }, () => new Particle());
+  }
+
+  function drawFrame() {
+    context.clearRect(0, 0, width, height);
+    for (const particle of particles) {
+      if (!reducedMotion.matches) particle.update();
+    }
+
+    for (let first = 0; first < particles.length; first += 1) {
+      for (let second = first + 1; second < particles.length; second += 1) {
+        const a = particles[first];
+        const b = particles[second];
+        const distance = Math.hypot(a.x - b.x, a.y - b.y);
+        if (distance >= CONNECTION_DISTANCE) continue;
+        context.beginPath();
+        context.strokeStyle = `rgba(28, 71, 124, ${(1 - distance / CONNECTION_DISTANCE) * 0.5})`;
+        context.lineWidth = 0.8;
+        context.moveTo(a.x, a.y);
+        context.lineTo(b.x, b.y);
+        context.stroke();
+      }
+    }
+
+    for (const particle of particles) {
+      context.beginPath();
+      context.arc(particle.x, particle.y, particle.radius, 0, Math.PI * 2);
+      context.fillStyle = `rgba(216, 167, 47, ${particle.alpha})`;
+      context.fill();
+    }
+
+    if (!reducedMotion.matches) animationFrame = window.requestAnimationFrame(drawFrame);
+  }
+
+  function restart() {
+    window.cancelAnimationFrame(animationFrame);
+    resizeCanvas();
+    drawFrame();
+  }
+
+  hero.addEventListener("pointermove", event => {
+    const bounds = canvas.getBoundingClientRect();
+    pointer.x = event.clientX - bounds.left;
+    pointer.y = event.clientY - bounds.top;
+    pointer.active = true;
+  }, { passive: true });
+
+  hero.addEventListener("pointerleave", () => {
+    pointer.x = -1000;
+    pointer.y = -1000;
+    pointer.active = false;
+  }, { passive: true });
+
+  window.addEventListener("resize", restart, { passive: true });
+  reducedMotion.addEventListener("change", restart);
+  compactViewport.addEventListener("change", restart);
+  restart();
+})();
+</script>
+</body>
+</html>
