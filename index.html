@@ -737,7 +737,7 @@
   }
 
   .journal-name {
-    color: #1a73e8;
+    color: #111827;
     font-style: normal;
     font-weight: 850;
     letter-spacing: 0.1px;
@@ -747,7 +747,7 @@
     display: inline-flex;
     align-items: center;
     gap: 5px;
-    margin-left: 5px;
+    margin-left: 0;
     padding: 4px 10px;
     border-radius: 999px;
     border: 1px solid rgba(78, 149, 217, 0.28);
@@ -1680,7 +1680,7 @@
 
   .auto-journal-metric {
     gap: 3px;
-    margin-left: 3px;
+    margin-left: 0;
     padding: 2px 7px;
     font-size: 9.5px;
     line-height: 1.12;
@@ -3885,7 +3885,6 @@
 
           <p class="paper-journal">
             <em class="journal-name">${escapeHtml(paper.journal)}</em>${formatJournalDetails(paper) ? ", " + escapeHtml(formatJournalDetails(paper)) + "." : "."}
-            ${renderJournalMetricBadge(paper)}
             ${paper.doi ? `
               <span class="doi-line">
                 <a href="${escapeHtml(doiUrl)}" target="_blank" rel="noopener noreferrer"><svg class="reference-link-icon" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M15 3h6v6M10 14 21 3"/><path d="M10 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-5"/></svg><span class="reference-link-label">DOI:</span> ${escapeHtml(paper.doi)}</a>
@@ -3896,9 +3895,10 @@
           <div class="citation-links">
             ${renderCitationLinks(paper)}
             <div class="auto-citation-row">
-              <span class="auto-citation-count is-loading" data-doi="${escapeHtml(paper.doi)}">Citations: loading...</span>
+              ${renderJournalMetricBadge(paper)}
               <button type="button" class="abstract-button" data-doi="${escapeHtml(paper.doi)}" data-title="${escapeHtml(paper.title)}" data-local-abstract="${escapeHtml(paper.abstract)}">View abstract</button>
               ${renderGraphicalAbstractButton(paper)}
+              <span class="auto-citation-count is-loading" data-doi="${escapeHtml(paper.doi)}">Citations: loading...</span>
               ${renderPlumXWidget(paper)}
               ${renderAltmetricWidget(paper)}
             </div>
